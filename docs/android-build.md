@@ -10,8 +10,9 @@
 | --- | --- |
 | `dist/PowerCard-v1.1.0.apk` | **v1.1.0 交付物**：release 签名安装包（含桌面小组件） |
 | `dist/PowerCard-v1.1.0.apk.sha256` | 上述 APK 的 SHA-256 |
-| `dist/PowerCard-v1.1.0-debug.apk` | debug 包，用于快速安装验证 |
-| `dist/PowerCard-v1.0.0.apk` / `.sha256` / `-debug.apk` | v1.0.0 历史产物（保留，未修改） |
+| `dist/PowerCard-v1.0.0.apk` / `.sha256` | v1.0.0 历史产物（保留，未修改） |
+
+> `-debug.apk` 可由 `scripts\build-android.ps1 -Target debug` 在本地生成，已加入 `.gitignore`，不提交。
 
 包名 `com.powercard.remote`，应用名「远程电脑控制」，versionName `1.1.0`，versionCode `2`，
 minSdk 26 / targetSdk 35 / compileSdk 35。v1.1.0 相较 v1.0.0 新增桌面小组件（RemoteViews），

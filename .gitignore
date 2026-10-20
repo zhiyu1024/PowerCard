@@ -20,5 +20,6 @@ android/app/src/main/assets/public/
 android/local.properties
 android/keystore/
 dist/signing/
+dist/*-debug.apk
 .DS_Store
 Thumbs.db

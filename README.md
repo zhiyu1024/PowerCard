@@ -252,8 +252,7 @@ android/
 dist/
 ├─ PowerCard-v1.1.0.apk
 ├─ PowerCard-v1.1.0.apk.sha256
-├─ PowerCard-v1.1.0-debug.apk   仅调试用，非最终交付
-└─ PowerCard-v1.0.0*           上一版回退包
+└─ PowerCard-v1.0.0*           上一版回退包（-debug 包本地构建生成，不提交）
 ```
 
 ## 可选的网页版
