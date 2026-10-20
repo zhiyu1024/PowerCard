@@ -1,0 +1,10 @@
+
+        A: http://schemas.android.com/apk/res/android:name(0x01010003)="com.powercard.remote.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" (Raw: "com.powercard.remote.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION")
+        A: http://schemas.android.com/apk/res/android:name(0x01010003)="com.powercard.remote.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" (Raw: "com.powercard.remote.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION")
+        A: http://schemas.android.com/apk/res/android:debuggable(0x0101000f)=true
+        A: http://schemas.android.com/apk/res/android:allowBackup(0x01010280)=false
+        A: http://schemas.android.com/apk/res/android:usesCleartextTraffic(0x010104ec)=true
+            A: http://schemas.android.com/apk/res/android:exported(0x01010010)=true
+            A: http://schemas.android.com/apk/res/android:exported(0x01010010)=false
+            A: http://schemas.android.com/apk/res/android:exported(0x01010010)=true
+

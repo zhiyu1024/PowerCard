@@ -1,0 +1,194 @@
+
+P d 91	100	11593	com.powercard
+P d 91	100	11593	com.powercard.remote
+C d 22	31	2423	com.powercard.remote.MainActivity
+M d 1	1	39	com.powercard.remote.MainActivity void $r8$lambda$5ltNUgjilDueklp0hFwTnGHk3PY(com.powercard.remote.MainActivity,java.lang.String)
+M d 1	1	36	com.powercard.remote.MainActivity void -$$Nest$fputpageVisible(com.powercard.remote.MainActivity,boolean)
+M d 1	1	40	com.powercard.remote.MainActivity boolean -$$Nest$mhandleNavigation(com.powercard.remote.MainActivity,android.net.Uri)
+M d 1	1	40	com.powercard.remote.MainActivity android.webkit.WebResourceResponse -$$Nest$mintercept(com.powercard.remote.MainActivity,android.net.Uri)
+M d 1	1	39	com.powercard.remote.MainActivity <init>()
+M d 1	1	83	com.powercard.remote.MainActivity void applyInsets(android.view.View)
+M d 1	1	224	com.powercard.remote.MainActivity android.view.View buildContentView()
+M d 1	1	115	com.powercard.remote.MainActivity void configureEdgeToEdge()
+M d 1	1	427	com.powercard.remote.MainActivity android.webkit.WebView createWebView()
+M d 1	1	120	com.powercard.remote.MainActivity void handleBackPressed()
+M d 1	1	175	com.powercard.remote.MainActivity boolean handleNavigation(android.net.Uri)
+M d 1	1	133	com.powercard.remote.MainActivity android.webkit.WebResourceResponse intercept(android.net.Uri)
+M d 1	1	112	com.powercard.remote.MainActivity androidx.core.view.WindowInsetsCompat lambda$applyInsets$0(android.view.View,androidx.core.view.WindowInsetsCompat)
+M d 1	1	60	com.powercard.remote.MainActivity void lambda$handleBackPressed$1(java.lang.String)
+M d 1	1	76	com.powercard.remote.MainActivity void openExternally(android.net.Uri)
+M d 1	1	93	com.powercard.remote.MainActivity void copyToClipboard(java.lang.String)
+M d 1	1	37	com.powercard.remote.MainActivity void onBackPressed()
+M d 1	1	37	com.powercard.remote.MainActivity void onConfigurationChanged(android.content.res.Configuration)
+M d 1	1	65	com.powercard.remote.MainActivity void onCreate(android.os.Bundle)
+M d 1	1	122	com.powercard.remote.MainActivity void onDestroy()
+M d 1	1	51	com.powercard.remote.MainActivity void onPause()
+M d 1	1	51	com.powercard.remote.MainActivity void onResume()
+F d 0	0	14	com.powercard.remote.MainActivity java.lang.String ASSET_HOST
+F d 0	0	13	com.powercard.remote.MainActivity java.lang.String PAGE_BACKGROUND
+F d 0	0	13	com.powercard.remote.MainActivity java.lang.String START_URL
+F d 0	0	11	com.powercard.remote.MainActivity androidx.webkit.WebViewAssetLoader assetLoader
+F d 0	0	10	com.powercard.remote.MainActivity boolean backInFlight
+F d 0	0	10	com.powercard.remote.MainActivity com.powercard.remote.NativeBridge nativeBridge
+F d 0	0	10	com.powercard.remote.MainActivity boolean pageVisible
+F d 0	0	10	com.powercard.remote.MainActivity android.widget.FrameLayout root
+F d 0	0	10	com.powercard.remote.MainActivity com.powercard.remote.RootAssetsPathHandler rootAssets
+F d 0	0	10	com.powercard.remote.MainActivity android.webkit.WebView webView
+C d 16	16	1182	com.powercard.remote.NativeBridge
+M d 1	1	39	com.powercard.remote.NativeBridge void $r8$lambda$EM8dpfQW57KuhRyGxZNtNZ5AYDk(com.powercard.remote.NativeBridge,java.lang.String,java.lang.String)
+M d 1	1	38	com.powercard.remote.NativeBridge void $r8$lambda$Ij8mAV9aKf-okRyu4LgWOoNoqhU(com.powercard.remote.NativeBridge,java.lang.String,int,java.lang.String)
+M d 1	1	38	com.powercard.remote.NativeBridge void $r8$lambda$NwKJDsYw3Zay8PJb7FPqmfz11x0(com.powercard.remote.NativeBridge,java.lang.String)
+M d 1	1	38	com.powercard.remote.NativeBridge void $r8$lambda$yIFtOaZuMs8Z_hlLgV1lMlIvX2g(com.powercard.remote.NativeBridge,java.lang.String)
+M d 1	1	129	com.powercard.remote.NativeBridge <init>(com.powercard.remote.MainActivity,android.webkit.WebView)
+M d 1	1	140	com.powercard.remote.NativeBridge void deliverHttpResult(java.lang.String,java.lang.String)
+M d 1	1	42	com.powercard.remote.NativeBridge void lambda$copyText$3(java.lang.String)
+M d 1	1	38	com.powercard.remote.NativeBridge void lambda$httpGet$0(java.lang.String,java.lang.String)
+M d 1	1	105	com.powercard.remote.NativeBridge void lambda$httpGet$1(java.lang.String,int,java.lang.String)
+M d 1	1	58	com.powercard.remote.NativeBridge void lambda$httpGet$2(java.lang.String)
+M d 1	1	86	com.powercard.remote.NativeBridge void copyText(java.lang.String)
+M d 1	1	35	com.powercard.remote.NativeBridge java.lang.String getAppVersion()
+M d 1	1	43	com.powercard.remote.NativeBridge java.lang.String getConfigJson()
+M d 1	1	94	com.powercard.remote.NativeBridge void httpGet(java.lang.String,java.lang.String,int)
+M d 1	1	43	com.powercard.remote.NativeBridge boolean saveConfigJson(java.lang.String)
+M d 1	1	47	com.powercard.remote.NativeBridge void shutdown()
+F d 0	0	14	com.powercard.remote.NativeBridge java.lang.String HTTP_CALLBACK
+F d 0	0	13	com.powercard.remote.NativeBridge java.lang.String JS_INTERFACE_NAME
+F d 0	0	14	com.powercard.remote.NativeBridge int MAX_CLIPBOARD_CHARS
+F d 0	0	11	com.powercard.remote.NativeBridge com.powercard.remote.MainActivity activity
+F d 0	0	10	com.powercard.remote.NativeBridge com.powercard.remote.SecureConfigStore configStore
+F d 0	0	10	com.powercard.remote.NativeBridge java.util.concurrent.ExecutorService executor
+F d 0	0	10	com.powercard.remote.NativeBridge com.powercard.remote.NativeHttpClient httpClient
+F d 0	0	10	com.powercard.remote.NativeBridge android.os.Handler mainHandler
+F d 0	0	10	com.powercard.remote.NativeBridge boolean released
+F d 0	0	10	com.powercard.remote.NativeBridge android.webkit.WebView webView
+C d 10	10	553	com.powercard.remote.MainActivity$AppWebViewClient
+M d 1	1	44	com.powercard.remote.MainActivity$AppWebViewClient <init>(com.powercard.remote.MainActivity)
+M d 1	1	39	com.powercard.remote.MainActivity$AppWebViewClient <init>(com.powercard.remote.MainActivity,com.powercard.remote.MainActivity-IA)
+M d 1	1	56	com.powercard.remote.MainActivity$AppWebViewClient void markNativeMode(android.webkit.WebView)
+M d 1	1	50	com.powercard.remote.MainActivity$AppWebViewClient void onPageFinished(android.webkit.WebView,java.lang.String)
+M d 1	1	49	com.powercard.remote.MainActivity$AppWebViewClient void onPageStarted(android.webkit.WebView,java.lang.String,android.graphics.Bitmap)
+M d 1	1	31	com.powercard.remote.MainActivity$AppWebViewClient void onReceivedError(android.webkit.WebView,android.webkit.WebResourceRequest,android.webkit.WebResourceError)
+M d 1	1	51	com.powercard.remote.MainActivity$AppWebViewClient android.webkit.WebResourceResponse shouldInterceptRequest(android.webkit.WebView,android.webkit.WebResourceRequest)
+M d 1	1	51	com.powercard.remote.MainActivity$AppWebViewClient android.webkit.WebResourceResponse shouldInterceptRequest(android.webkit.WebView,java.lang.String)
+M d 1	1	51	com.powercard.remote.MainActivity$AppWebViewClient boolean shouldOverrideUrlLoading(android.webkit.WebView,android.webkit.WebResourceRequest)
+M d 1	1	51	com.powercard.remote.MainActivity$AppWebViewClient boolean shouldOverrideUrlLoading(android.webkit.WebView,java.lang.String)
+F d 0	0	12	com.powercard.remote.MainActivity$AppWebViewClient com.powercard.remote.MainActivity this$0
+C d 10	10	2582	com.powercard.remote.NativeHttpClient
+M d 1	1	40	com.powercard.remote.NativeHttpClient <init>()
+M d 1	1	55	com.powercard.remote.NativeHttpClient int clampTimeout(int)
+M d 1	1	61	com.powercard.remote.NativeHttpClient long elapsedMs(long)
+M d 1	1	69	com.powercard.remote.NativeHttpClient com.powercard.remote.NativeHttpClient$HttpResult errorResult(java.lang.String,java.lang.String,long)
+M d 1	1	129	com.powercard.remote.NativeHttpClient java.lang.String failureJson(java.lang.String,java.lang.String,long)
+M d 1	1	170	com.powercard.remote.NativeHttpClient boolean isHttpUrl(java.lang.String)
+M d 1	1	79	com.powercard.remote.NativeHttpClient boolean isRedirect(int)
+M d 1	1	310	com.powercard.remote.NativeHttpClient com.powercard.remote.NativeHttpClient$ReadResult readBody(java.net.HttpURLConnection,int)
+M d 1	1	203	com.powercard.remote.NativeHttpClient java.lang.String userAgent()
+M d 1	1	1336	com.powercard.remote.NativeHttpClient com.powercard.remote.NativeHttpClient$HttpResult get(java.lang.String,int)
+F d 0	0	14	com.powercard.remote.NativeHttpClient java.lang.String ACCEPT
+F d 0	0	13	com.powercard.remote.NativeHttpClient int MAX_BODY_CHARS
+F d 0	0	12	com.powercard.remote.NativeHttpClient int MAX_REDIRECTS
+F d 0	0	13	com.powercard.remote.NativeHttpClient int MAX_TIMEOUT_MS
+F d 0	0	13	com.powercard.remote.NativeHttpClient int MIN_TIMEOUT_MS
+C d 5	5	946	com.powercard.remote.RootAssetsPathHandler
+M d 1	1	44	com.powercard.remote.RootAssetsPathHandler <init>(android.content.res.AssetManager)
+M d 1	1	129	com.powercard.remote.RootAssetsPathHandler java.lang.String encodingFor(java.lang.String)
+M d 1	1	431	com.powercard.remote.RootAssetsPathHandler java.lang.String mimeType(java.lang.String)
+M d 1	1	135	com.powercard.remote.RootAssetsPathHandler java.lang.String normalize(java.lang.String)
+M d 1	1	135	com.powercard.remote.RootAssetsPathHandler android.webkit.WebResourceResponse handle(java.lang.String)
+F d 0	0	14	com.powercard.remote.RootAssetsPathHandler java.lang.String ASSET_ROOT
+F d 0	0	11	com.powercard.remote.RootAssetsPathHandler android.content.res.AssetManager assets
+C d 5	5	1156	com.powercard.remote.SecureConfigStore
+M d 1	1	72	com.powercard.remote.SecureConfigStore <init>(android.content.Context)
+M d 1	1	213	com.powercard.remote.SecureConfigStore javax.crypto.SecretKey getOrCreateKey()
+M d 1	1	104	com.powercard.remote.SecureConfigStore boolean isJsonObject(java.lang.String)
+M d 1	1	299	com.powercard.remote.SecureConfigStore java.lang.String load()
+M d 1	1	274	com.powercard.remote.SecureConfigStore boolean save(java.lang.String)
+F d 0	0	14	com.powercard.remote.SecureConfigStore java.lang.String EMPTY_JSON
+F d 0	0	13	com.powercard.remote.SecureConfigStore int GCM_TAG_BITS
+F d 0	0	13	com.powercard.remote.SecureConfigStore java.lang.String KEYSTORE_PROVIDER
+F d 0	0	13	com.powercard.remote.SecureConfigStore java.lang.String KEY_ALIAS
+F d 0	0	14	com.powercard.remote.SecureConfigStore int MAX_JSON_CHARS
+F d 0	0	13	com.powercard.remote.SecureConfigStore java.lang.String PREFS_NAME
+F d 0	0	13	com.powercard.remote.SecureConfigStore java.lang.String PREF_KEY
+F d 0	0	13	com.powercard.remote.SecureConfigStore java.lang.String TRANSFORMATION
+F d 0	0	11	com.powercard.remote.SecureConfigStore javax.crypto.SecretKey cachedKey
+F d 0	0	10	com.powercard.remote.SecureConfigStore android.content.SharedPreferences preferences
+F d 0	0	10	com.powercard.remote.SecureConfigStore java.security.SecureRandom secureRandom
+C d 2	2	126	com.powercard.remote.MainActivity$$ExternalSyntheticLambda0
+M d 1	1	40	com.powercard.remote.MainActivity$$ExternalSyntheticLambda0 <init>()
+M d 1	1	40	com.powercard.remote.MainActivity$$ExternalSyntheticLambda0 androidx.core.view.WindowInsetsCompat onApplyWindowInsets(android.view.View,androidx.core.view.WindowInsetsCompat)
+C d 2	2	148	com.powercard.remote.MainActivity$$ExternalSyntheticLambda1
+M d 1	1	44	com.powercard.remote.MainActivity$$ExternalSyntheticLambda1 <init>(com.powercard.remote.MainActivity)
+M d 1	1	46	com.powercard.remote.MainActivity$$ExternalSyntheticLambda1 void onReceiveValue(java.lang.Object)
+F d 0	0	12	com.powercard.remote.MainActivity$$ExternalSyntheticLambda1 com.powercard.remote.MainActivity f$0
+C d 2	2	163	com.powercard.remote.NativeBridge$$ExternalSyntheticLambda0
+M d 1	1	48	com.powercard.remote.NativeBridge$$ExternalSyntheticLambda0 <init>(com.powercard.remote.NativeBridge,java.lang.String)
+M d 1	1	46	com.powercard.remote.NativeBridge$$ExternalSyntheticLambda0 void run()
+F d 0	0	12	com.powercard.remote.NativeBridge$$ExternalSyntheticLambda0 com.powercard.remote.NativeBridge f$0
+F d 0	0	11	com.powercard.remote.NativeBridge$$ExternalSyntheticLambda0 java.lang.String f$1
+C d 2	2	201	com.powercard.remote.NativeBridge$$ExternalSyntheticLambda1
+M d 1	1	56	com.powercard.remote.NativeBridge$$ExternalSyntheticLambda1 <init>(com.powercard.remote.NativeBridge,java.lang.String,int,java.lang.String)
+M d 1	1	54	com.powercard.remote.NativeBridge$$ExternalSyntheticLambda1 void run()
+F d 0	0	12	com.powercard.remote.NativeBridge$$ExternalSyntheticLambda1 com.powercard.remote.NativeBridge f$0
+F d 0	0	11	com.powercard.remote.NativeBridge$$ExternalSyntheticLambda1 java.lang.String f$1
+F d 0	0	11	com.powercard.remote.NativeBridge$$ExternalSyntheticLambda1 int f$2
+F d 0	0	11	com.powercard.remote.NativeBridge$$ExternalSyntheticLambda1 java.lang.String f$3
+C d 2	2	163	com.powercard.remote.NativeBridge$$ExternalSyntheticLambda2
+M d 1	1	48	com.powercard.remote.NativeBridge$$ExternalSyntheticLambda2 <init>(com.powercard.remote.NativeBridge,java.lang.String)
+M d 1	1	46	com.powercard.remote.NativeBridge$$ExternalSyntheticLambda2 void run()
+F d 0	0	12	com.powercard.remote.NativeBridge$$ExternalSyntheticLambda2 com.powercard.remote.NativeBridge f$0
+F d 0	0	11	com.powercard.remote.NativeBridge$$ExternalSyntheticLambda2 java.lang.String f$1
+C d 2	2	182	com.powercard.remote.NativeBridge$$ExternalSyntheticLambda3
+M d 1	1	52	com.powercard.remote.NativeBridge$$ExternalSyntheticLambda3 <init>(com.powercard.remote.NativeBridge,java.lang.String,java.lang.String)
+M d 1	1	50	com.powercard.remote.NativeBridge$$ExternalSyntheticLambda3 void run()
+F d 0	0	12	com.powercard.remote.NativeBridge$$ExternalSyntheticLambda3 com.powercard.remote.NativeBridge f$0
+F d 0	0	11	com.powercard.remote.NativeBridge$$ExternalSyntheticLambda3 java.lang.String f$1
+F d 0	0	11	com.powercard.remote.NativeBridge$$ExternalSyntheticLambda3 java.lang.String f$2
+C d 2	2	248	com.powercard.remote.NativeBridge$1
+M d 1	1	60	com.powercard.remote.NativeBridge$1 <init>(com.powercard.remote.NativeBridge)
+M d 1	1	92	com.powercard.remote.NativeBridge$1 java.lang.Thread newThread(java.lang.Runnable)
+F d 0	0	11	com.powercard.remote.NativeBridge$1 java.util.concurrent.atomic.AtomicInteger counter
+F d 0	0	11	com.powercard.remote.NativeBridge$1 com.powercard.remote.NativeBridge this$0
+C d 2	2	524	com.powercard.remote.NativeHttpClient$HttpResult
+M d 1	1	72	com.powercard.remote.NativeHttpClient$HttpResult <init>(boolean,java.lang.Integer,java.lang.String,java.lang.String,boolean,long,java.lang.String,java.lang.String)
+M d 1	1	303	com.powercard.remote.NativeHttpClient$HttpResult java.lang.String toJson()
+F d 0	0	11	com.powercard.remote.NativeHttpClient$HttpResult java.lang.String body
+F d 0	0	10	com.powercard.remote.NativeHttpClient$HttpResult java.lang.String contentType
+F d 0	0	10	com.powercard.remote.NativeHttpClient$HttpResult java.lang.String errorCode
+F d 0	0	10	com.powercard.remote.NativeHttpClient$HttpResult java.lang.String errorMessage
+F d 0	0	10	com.powercard.remote.NativeHttpClient$HttpResult long latencyMs
+F d 0	0	10	com.powercard.remote.NativeHttpClient$HttpResult boolean ok
+F d 0	0	10	com.powercard.remote.NativeHttpClient$HttpResult java.lang.Integer status
+F d 0	0	10	com.powercard.remote.NativeHttpClient$HttpResult boolean truncated
+C d 1	1	144	com.powercard.remote.BuildConfig
+M d 1	1	40	com.powercard.remote.BuildConfig <init>()
+F d 0	0	14	com.powercard.remote.BuildConfig java.lang.String APPLICATION_ID
+F d 0	0	13	com.powercard.remote.BuildConfig java.lang.String BUILD_TYPE
+F d 0	0	11	com.powercard.remote.BuildConfig boolean DEBUG
+F d 0	0	12	com.powercard.remote.BuildConfig int VERSION_CODE
+F d 0	0	13	com.powercard.remote.BuildConfig java.lang.String VERSION_NAME
+C d 1	1	137	com.powercard.remote.NativeHttpClient$ReadResult
+M d 1	1	48	com.powercard.remote.NativeHttpClient$ReadResult <init>(java.lang.String,boolean)
+F d 0	0	11	com.powercard.remote.NativeHttpClient$ReadResult java.lang.String body
+F d 0	0	10	com.powercard.remote.NativeHttpClient$ReadResult boolean truncated
+C d 1	1	155	com.powercard.remote.R$color
+M d 1	1	40	com.powercard.remote.R$color <init>()
+F d 0	0	16	com.powercard.remote.R$color int brand_green
+F d 0	0	15	com.powercard.remote.R$color int ic_launcher_background
+F d 0	0	15	com.powercard.remote.R$color int page_background
+C d 1	1	155	com.powercard.remote.R$mipmap
+M d 1	1	40	com.powercard.remote.R$mipmap <init>()
+F d 0	0	16	com.powercard.remote.R$mipmap int ic_launcher
+F d 0	0	15	com.powercard.remote.R$mipmap int ic_launcher_foreground
+F d 0	0	15	com.powercard.remote.R$mipmap int ic_launcher_round
+C d 1	1	140	com.powercard.remote.R$string
+M d 1	1	40	com.powercard.remote.R$string <init>()
+F d 0	0	16	com.powercard.remote.R$string int app_name
+F d 0	0	15	com.powercard.remote.R$string int webview_unavailable
+C d 1	1	125	com.powercard.remote.R$style
+M d 1	1	40	com.powercard.remote.R$style <init>()
+F d 0	0	16	com.powercard.remote.R$style int Theme_PowerCard
+C d 1	1	104	com.powercard.remote.R
+M d 1	1	40	com.powercard.remote.R <init>()
+C d 0	0	36	com.powercard.remote.MainActivity-IA
+

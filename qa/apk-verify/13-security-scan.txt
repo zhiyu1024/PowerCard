@@ -1,0 +1,113 @@
+scanned files: 203
+
+[private-ip-address] 31 match(es)
+  APK qa/apk-verify/apk-extract/unzipped/assets/public/index.html
+    context: k="false" placeholder="http://192.168.1.50/status" aria-describedby="sta
+  APK qa/apk-verify/apk-extract/unzipped/assets/public/index.html
+    context: k="false" placeholder="http://192.168.1.50/power/on" aria-describedby="p
+  APK qa/apk-verify/apk-extract/unzipped/assets/public/index.html
+    context: k="false" placeholder="http://192.168.1.50/power/off" aria-describedby="
+  APK qa/apk-verify/apk-extract/unzipped/assets/public/index.html
+    context: k="false" placeholder="http://192.168.1.50/reboot" aria-describedby="reb
+  APK qa/apk-verify/apk-extract/unzipped/assets/public/index.html
+    context: ellcheck="false" placeholder="192.168.1.50" aria-describedby="lanAddress
+  APK qa/apk-verify/apk-extract/unzipped/assets/public/index.html
+    context: ellcheck="false" placeholder="192.168.1.1" aria-describedby="gatewayErr
+  docs docs/api-contract.md
+    context: json { "statusUrl": "http://192.168.1.50/api/status", "powerOnUrl":
+  docs docs/api-contract.md
+    context: tus", "powerOnUrl": "http://192.168.1.50/api/power/on", "powerOffUrl
+  docs docs/api-contract.md
+    context: on", "powerOffUrl": "http://192.168.1.50/api/power/off", "rebootUrl"
+  docs docs/api-contract.md
+    context: /off", "rebootUrl": "http://192.168.1.50/api/reboot", "lanAddress":
+  docs docs/api-contract.md
+    context: api/reboot", "lanAddress": "192.168.1.50", "wanAddress": "https://ex
+  docs docs/api-contract.md
+    context: 255.255.255.0", "gateway": "192.168.1.1", "macAddress": "AA:BB:CC:D
+  docs docs/api-contract.md
+    context: / `192.168.1.50` | |
+  docs docs/api-contract.md
+    context: 000Z", "sourceUrl": "http://192.168.1.50/api/status", "httpStatus":
+  docs docs/api-contract.md
+    context: 000Z", "sourceUrl": "http://192.168.1.50/api/status", "httpStatus":
+  docs docs/api-contract.md
+    context: : 200, "sourceUrl": "http://192.168.1.50/api/power/on", "raw": { "co
+  docs docs/api-contract.md
+    context: null, "sourceUrl": "http://192.168.1.50/api/power/on", "raw": null,
+  docs docs/api-contract.md
+    context: : "GET", "url": "http://192.168.1.50/api/status", "httpStatu
+  docs docs/design-spec.md
+    context: placeholder `http://192.168.1.50/status` `
+  public public/index.html
+    context: k="false" placeholder="http://192.168.1.50/status" aria-describedby="sta
+  public public/index.html
+    context: k="false" placeholder="http://192.168.1.50/power/on" aria-describedby="p
+  public public/index.html
+    context: k="false" placeholder="http://192.168.1.50/power/off" aria-describedby="
+  public public/index.html
+    context: k="false" placeholder="http://192.168.1.50/reboot" aria-describedby="reb
+  public public/index.html
+    context: ellcheck="false" placeholder="192.168.1.50" aria-describedby="lanAddress
+  public public/index.html
+    context: ellcheck="false" placeholder="192.168.1.1" aria-describedby="gatewayErr
+
+[keystore-password-key] 11 match(es)
+  docs docs/android-build.md
+    context: re.properties` `storeFile`/`storePassword`/`keyAlias`/`keyPassword`
+  docs docs/android-build.md
+    context: `/`storePassword`/`keyAlias`/`keyPassword` - `androi
+  scripts scripts/build-android.ps1
+    context: s" return } $storePassword = if ($env:POWERCARD_STORE_PA
+  scripts scripts/build-android.ps1
+    context: ).Substring(0, 32) } $keyPassword = if ($env:POWERCARD_KEY_PASS
+  scripts scripts/build-android.ps1
+    context: ERCARD_KEY_PASSWORD } else { $storePassword } Write-Host ' rel
+  scripts scripts/build-android.ps1
+    context: PKCS12 ` -storepass $storePassword -keypass $keyPassword `
+  scripts scripts/build-android.ps1
+    context: pass $storePassword -keypass $keyPassword ` -dname 'CN=PowerCar
+  scripts scripts/build-android.ps1
+    context: eystore/powercard-release.jks storePassword=$storePassword keyAlias=power
+  scripts scripts/build-android.ps1
+    context: rd-release.jks storePassword=$storePassword keyAlias=powercard keyPasswor
+  scripts scripts/build-android.ps1
+    context: rePassword keyAlias=powercard keyPassword=$keyPassword "@ Set-Conte
+  scripts scripts/build-android.ps1
+    context: yAlias=powercard keyPassword=$keyPassword "@ Set-Content -Path $pro
+
+[jks-filename] 13 match(es)
+  docs docs/android-build.md
+    context: keystore `android/keystore/powercard-release.jks` PKCS12 RSA 2048
+  docs docs/android-build.md
+    context: `android/keystore/keystore.properties` `storeFile`/`storePassword
+  docs docs/android-build.md
+    context: | `android/keystore/keystore.properties` `scripts\buil
+  docs docs/android-qa-report.md
+    context: keystore `android/keystore/powercard-release.jks` gitignore
+  scripts scripts/build-android.ps1
+    context: keystore.properties
+  scripts scripts/build-android.ps1
+    context: ile = Join-Path $keystoreDir 'powercard-release.jks' $propsFile = Join-Path $
+  scripts scripts/build-android.ps1
+    context: ile = Join-Path $keystoreDir 'keystore.properties' New-Item -ItemType Direc
+  scripts scripts/build-android.ps1
+    context: se keystore: android/keystore/powercard-release.jks" return } $s
+  scripts scripts/build-android.ps1
+    context: android/keystore/keystore.properties ...' & (Joi
+  scripts scripts/build-android.ps1
+    context: storeFile=keystore/powercard-release.jks storePassword=$storePassword
+  scripts scripts/build-android.ps1
+    context: android/keystore/keystore.properties ' } # --- Gradle --
+  README README.md
+    context: # - `android/keystore/powercard-release.jks` PKCS12 RSA 2048 -
+  README README.md
+    context: - `android/keystore/keystore.properties` - `.gitignor
+
+[mock-device-name] 2 match(es)
+  scripts scripts/dev-mock-device.js
+    context: * * node scripts/dev-mock-device.js #
+  scripts scripts/dev-mock-device.js
+    context: .0.0.1:8788 * node scripts/dev-mock-device.js 8890 * *
+
+RESULT: total_matches=57 scanned=203

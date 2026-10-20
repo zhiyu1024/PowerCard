@@ -1,0 +1,21 @@
+{
+  "name": "powercard-remote",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "远程电脑控制 —— 电脑远程开机卡的 Android APK / PWA 控制面板",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server/start.js",
+    "dev": "node --watch server/start.js",
+    "test": "node --test",
+    "test:e2e": "node tests/e2e/run.js",
+    "test:native": "node tests/e2e/native-mode.js",
+    "build:android": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-android.ps1"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.55.0"
+  }
+}

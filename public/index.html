@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>远程电脑控制</title>
+  <meta name="description" content="在一部手机上查看并控制家里电脑的开关机状态。" />
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#f6f4ef" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="远程电脑控制" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script type="module" src="./native-bridge.js"></script>
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要操作</a>
+
+  <svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <symbol id="i-monitor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2.75" y="3.75" width="18.5" height="12.5" rx="2" />
+      <path d="M8.5 20.25h7M12 16.25v4" />
+    </symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 7.5h8.5M17.5 7.5H20M4 16.5h3.5M12.5 16.5H20" />
+      <circle cx="15" cy="7.5" r="2.25" />
+      <circle cx="9" cy="16.5" r="2.25" />
+    </symbol>
+    <symbol id="i-wifi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2.9 8.5a14.5 14.5 0 0 1 18.2 0" />
+      <path d="M5.9 11.9a10 10 0 0 1 12.2 0" />
+      <path d="M9 15.3a5.5 5.5 0 0 1 6 0" />
+      <circle cx="12" cy="18.6" r="1" fill="currentColor" stroke="none" />
+    </symbol>
+    <symbol id="i-power" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3.2v8.3" />
+      <path d="M17.7 6.3a8 8 0 1 1-11.4 0" />
+    </symbol>
+    <symbol id="i-reboot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3.2 12a8.8 8.8 0 1 0 8.8-8.8 9.6 9.6 0 0 0-6.6 2.7L3.2 8.1" />
+      <path d="M3.2 3.4v4.7h4.7" />
+    </symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20.8 12a8.8 8.8 0 1 1-8.8-8.8 9.6 9.6 0 0 1 6.6 2.7l2.2 2.2" />
+      <path d="M20.8 3.4v4.7h-4.7" />
+    </symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 6l12 12M18 6L6 18" />
+    </symbol>
+    <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 13.5V19a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 19V7.5A1.5 1.5 0 0 1 5 6h5.5" />
+      <path d="M15 3.5h5.5V9" />
+      <path d="M10 14L20.5 3.5" />
+    </symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="9" y="9" width="11" height="11" rx="2" />
+      <path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1" />
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4.5 12.5l5 5 10-11" />
+    </symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7.4v5.6" />
+      <circle cx="12" cy="16.8" r="0.9" fill="currentColor" stroke="none" />
+    </symbol>
+    <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 11v5.4" />
+      <circle cx="12" cy="7.8" r="0.9" fill="currentColor" stroke="none" />
+    </symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 9.5l6 6 6-6" />
+    </symbol>
+  </svg>
+
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <h1>远程电脑控制</h1>
+        <p class="subtitle" id="subtitle">正在连接设备…</p>
+      </div>
+      <button class="icon-btn" id="settingsBtn" type="button" aria-label="调试与设置" aria-haspopup="dialog" aria-expanded="false" aria-controls="settingsDialog" title="调试与设置">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-sliders"></use></svg>
+      </button>
+    </header>
+
+    <main class="main" id="main" tabindex="-1">
+      <section class="hero" id="hero" data-state="loading" aria-live="polite" aria-atomic="false" aria-busy="true">
+        <div class="hero-icon" id="heroIcon" aria-hidden="true">
+          <svg class="icon hero-monitor" viewBox="0 0 24 24" focusable="false"><use href="#i-monitor"></use></svg>
+        </div>
+        <h2 class="hero-title" id="heroTitle">
+          <span class="skeleton-bar" aria-hidden="true"></span>
+          <span class="sr-only">正在连接…</span>
+        </h2>
+        <p class="hero-status" id="heroStatus" data-state="checking">
+          <svg class="icon hero-wifi" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-wifi"></use></svg>
+          <span class="hero-status-text" id="heroStatusText">正在检查…</span>
+          <span class="status-dot" aria-hidden="true"></span>
+        </p>
+        <p class="hero-meta" id="heroMetaRow" aria-live="off">
+          <span id="heroMeta">正在获取设备状态…</span>
+          <span class="badge-demo" id="demoBadge" hidden>演示模式</span>
+        </p>
+        <p class="hero-warning" id="heroWarning" hidden></p>
+      </section>
+
+      <section class="controls" aria-label="电源控制">
+        <div class="primary-actions">
+          <button class="action-card action-on" id="powerOnBtn" type="button" data-action="on" disabled>
+            <svg class="icon action-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-power"></use></svg>
+            <span class="action-label" id="powerOnLabel">开机</span>
+          </button>
+          <button class="action-card action-off" id="powerOffBtn" type="button" data-action="off" disabled>
+            <svg class="icon action-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-power"></use></svg>
+            <span class="action-label" id="powerOffLabel">关机</span>
+          </button>
+        </div>
+        <div class="secondary-actions">
+          <button class="ghost-card" id="rebootBtn" type="button" data-action="reboot" disabled>
+            <svg class="icon ghost-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-reboot"></use></svg>
+            <span class="action-label" id="rebootLabel">重启</span>
+          </button>
+          <button class="ghost-card" id="refreshBtn" type="button" aria-label="刷新状态">
+            <svg class="icon ghost-icon icon-refresh" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-refresh"></use></svg>
+            <span class="action-label">刷新状态</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog class="confirm-dialog" id="confirmDialog" aria-labelledby="confirmTitle" aria-describedby="confirmDesc" aria-modal="true">
+    <div class="confirm-card" id="confirmCard">
+      <div class="confirm-icon" id="confirmIcon" data-tone="danger" aria-hidden="true">
+        <svg class="icon" viewBox="0 0 24 24" focusable="false"><use href="#i-power" id="confirmIconUse"></use></svg>
+      </div>
+      <h2 id="confirmTitle">确认关机？</h2>
+      <p id="confirmDesc">指令将发送到开机卡，电脑会立即关机。</p>
+      <div class="confirm-actions">
+        <button class="btn btn-ghost" id="confirmCancel" type="button">取消</button>
+        <button class="btn btn-danger" id="confirmOk" type="button">确认关机</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="settings-dialog" id="settingsDialog" aria-labelledby="settingsTitle" aria-modal="true">
+    <div class="drawer" id="drawer">
+      <header class="drawer-head">
+        <div class="drawer-heading">
+          <h2 id="settingsTitle">调试与设置</h2>
+          <p>接口地址与设备资料</p>
+        </div>
+        <button class="icon-btn drawer-close" id="settingsClose" type="button" aria-label="关闭设置">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-close"></use></svg>
+        </button>
+      </header>
+
+      <div class="drawer-body" id="drawerBody">
+        <p class="notice" id="drawerNotice" hidden role="status"></p>
+
+        <form class="settings-form" id="settingsForm" novalidate>
+          <section class="section" aria-labelledby="secEndpoints">
+            <h3 class="section-title" id="secEndpoints">接口地址</h3>
+            <p class="section-help">服务端将以 GET 请求访问，可包含查询参数。四项接口 URL 全部留空即进入演示模式。</p>
+
+            <div class="field">
+              <label for="statusUrl">状态查询 URL <span class="get-badge" aria-hidden="true">GET</span></label>
+              <input id="statusUrl" name="statusUrl" type="url" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="http://192.168.1.50/status" aria-describedby="statusUrlError" />
+              <p class="field-error" id="statusUrlError" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="powerOnUrl">开机 URL <span class="get-badge" aria-hidden="true">GET</span></label>
+              <input id="powerOnUrl" name="powerOnUrl" type="url" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="http://192.168.1.50/power/on" aria-describedby="powerOnUrlError" />
+              <p class="field-error" id="powerOnUrlError" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="powerOffUrl">关机 URL <span class="get-badge" aria-hidden="true">GET</span></label>
+              <input id="powerOffUrl" name="powerOffUrl" type="url" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="http://192.168.1.50/power/off" aria-describedby="powerOffUrlError" />
+              <p class="field-error" id="powerOffUrlError" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="rebootUrl">重启 URL <span class="get-badge" aria-hidden="true">GET</span></label>
+              <input id="rebootUrl" name="rebootUrl" type="url" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="http://192.168.1.50/reboot" aria-describedby="rebootUrlError" />
+              <p class="field-error" id="rebootUrlError" hidden></p>
+            </div>
+          </section>
+
+          <section class="section" aria-labelledby="secNetwork">
+            <h3 class="section-title" id="secNetwork">设备网络信息</h3>
+            <p class="section-help">仅用于展示与快速打开，不会用于控制。</p>
+
+            <div class="field-grid">
+              <div class="field">
+                <label for="wanAddress">公网地址</label>
+                <div class="input-row">
+                  <input id="wanAddress" name="wanAddress" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://example.com" aria-describedby="wanAddressError" />
+                  <a class="open-link" id="wanAddressOpen" target="_blank" rel="noopener noreferrer" aria-label="打开公网地址" hidden>
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg>
+                  </a>
+                </div>
+                <p class="field-error" id="wanAddressError" hidden></p>
+              </div>
+
+              <div class="field">
+                <label for="lanAddress">内网地址</label>
+                <div class="input-row">
+                  <input id="lanAddress" name="lanAddress" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="192.168.1.50" aria-describedby="lanAddressError" />
+                  <a class="open-link" id="lanAddressOpen" target="_blank" rel="noopener noreferrer" aria-label="打开内网地址" hidden>
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg>
+                  </a>
+                </div>
+                <p class="field-error" id="lanAddressError" hidden></p>
+              </div>
+
+              <div class="field">
+                <label for="subnetMask">子网掩码</label>
+                <input id="subnetMask" name="subnetMask" type="text" inputmode="numeric" autocomplete="off" spellcheck="false" placeholder="255.255.255.0" aria-describedby="subnetMaskError" />
+                <p class="field-error" id="subnetMaskError" hidden></p>
+              </div>
+
+              <div class="field">
+                <label for="gateway">默认网关</label>
+                <input id="gateway" name="gateway" type="text" inputmode="numeric" autocomplete="off" spellcheck="false" placeholder="192.168.1.1" aria-describedby="gatewayError" />
+                <p class="field-error" id="gatewayError" hidden></p>
+              </div>
+
+              <div class="field field-full">
+                <label for="macAddress">物理地址（MAC）</label>
+                <input id="macAddress" name="macAddress" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="AA:BB:CC:DD:EE:FF" aria-describedby="macAddressError" />
+                <p class="field-error" id="macAddressError" hidden></p>
+              </div>
+            </div>
+          </section>
+
+          <section class="section" aria-labelledby="secRecognize">
+            <h3 class="section-title" id="secRecognize">状态识别</h3>
+            <p class="section-help">支持 JSON / 纯文本自动识别；识别失败时可查看原始响应或手动指定字段。</p>
+
+            <div class="field">
+              <label for="powerField">电源状态字段</label>
+              <input id="powerField" name="powerField" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="自动识别，如 data.power" aria-describedby="powerFieldError" />
+              <p class="field-error" id="powerFieldError" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="onlineField">在线状态字段</label>
+              <input id="onlineField" name="onlineField" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="自动识别，如 data.online" aria-describedby="onlineFieldError" />
+              <p class="field-error" id="onlineFieldError" hidden></p>
+            </div>
+          </section>
+
+          <section class="section" aria-labelledby="secBehavior">
+            <h3 class="section-title" id="secBehavior">刷新与操作</h3>
+
+            <div class="field-grid">
+              <div class="field">
+                <label for="pollIntervalSec">轮询间隔</label>
+                <div class="select-wrap">
+                  <select id="pollIntervalSec" name="pollIntervalSec">
+                    <option value="5">5 秒</option>
+                    <option value="10">10 秒</option>
+                    <option value="15">15 秒</option>
+                    <option value="30">30 秒</option>
+                    <option value="60">60 秒</option>
+                  </select>
+                  <svg class="icon select-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-chevron"></use></svg>
+                </div>
+                <p class="field-error" id="pollIntervalSecError" hidden></p>
+              </div>
+
+              <div class="field">
+                <label for="requestTimeoutSec">请求超时</label>
+                <div class="select-wrap">
+                  <select id="requestTimeoutSec" name="requestTimeoutSec">
+                    <option value="3">3 秒</option>
+                    <option value="5">5 秒</option>
+                    <option value="8">8 秒</option>
+                    <option value="10">10 秒</option>
+                  </select>
+                  <svg class="icon select-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-chevron"></use></svg>
+                </div>
+                <p class="field-error" id="requestTimeoutSecError" hidden></p>
+              </div>
+            </div>
+
+            <div class="switch-row">
+              <div class="switch-copy">
+                <span class="switch-label" id="confirmActionsLabel">操作二次确认</span>
+                <span class="switch-help" id="confirmActionsHelp">开机、关机与重启前弹出确认框</span>
+              </div>
+              <label class="switch">
+                <input id="confirmActions" name="confirmActions" type="checkbox" role="switch" aria-labelledby="confirmActionsLabel" aria-describedby="confirmActionsHelp" />
+                <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+              </label>
+            </div>
+            <p class="field-error" id="confirmActionsError" hidden></p>
+          </section>
+
+          <section class="section" aria-labelledby="secTest">
+            <h3 class="section-title" id="secTest">连接测试</h3>
+            <div class="test-row">
+              <button class="btn btn-outline" id="testBtn" type="button">测试状态接口</button>
+              <p class="section-help test-help">使用当前填写的地址测试，不会保存设置。</p>
+            </div>
+            <div class="test-result" id="testResult" aria-live="polite" hidden></div>
+          </section>
+
+          <section class="section" aria-labelledby="secDebug">
+            <h3 class="section-title" id="secDebug">调试信息</h3>
+            <dl class="debug-grid">
+              <div class="debug-item">
+                <dt>当前模式</dt>
+                <dd><span class="badge-mode" id="debugMode" data-tone="unknown">未知</span></dd>
+              </div>
+              <div class="debug-item">
+                <dt>状态接口</dt>
+                <dd class="debug-source" id="debugSource">—</dd>
+              </div>
+            </dl>
+
+            <details class="raw-details" id="rawDetails">
+              <summary>查看原始响应</summary>
+              <div class="raw-panel">
+                <div class="raw-toolbar">
+                  <span class="raw-meta" id="rawMeta">暂无数据</span>
+                  <button class="mini-btn" id="copyRawBtn" type="button" disabled>复制</button>
+                </div>
+                <pre class="raw-body" id="rawBody" tabindex="0">暂无原始响应，请先刷新状态。</pre>
+              </div>
+            </details>
+
+            <div class="logs-head">
+              <span class="section-subtitle">最近请求</span>
+              <button class="mini-btn" id="loadLogsBtn" type="button">加载最近请求</button>
+            </div>
+            <div class="logs" id="logsBox" aria-live="polite">
+              <p class="log-empty">尚未加载请求记录。</p>
+            </div>
+          </section>
+        </form>
+      </div>
+
+      <footer class="drawer-foot">
+        <div class="drawer-foot-row">
+          <button class="btn btn-ghost" id="settingsCancel" type="button">取消</button>
+          <button class="btn btn-primary" id="settingsSave" type="submit" form="settingsForm">保存并应用</button>
+        </div>
+      </footer>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">
+    <span class="toast-dot" aria-hidden="true"></span>
+    <span class="toast-text" id="toastText"></span>
+  </div>
+
+  <noscript>
+    <p class="noscript">需要启用 JavaScript 才能查看与控制电脑状态。</p>
+  </noscript>
+</body>
+</html>
+

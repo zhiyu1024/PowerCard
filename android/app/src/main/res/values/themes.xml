@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      无 ActionBar 的暖白主题。Android 15（API 35）默认强制 edge-to-edge：
+      MainActivity 使用 WindowCompat.setDecorFitsSystemWindows(false) 并给内容加系统栏/刘海安全区，
+      状态栏、导航栏透明并且图标为深色，视觉上等同 #f6f4ef。
+    -->
+    <style name="Theme.PowerCard" parent="@android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/page_background</item>
+        <item name="android:colorAccent">@color/brand_green</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>

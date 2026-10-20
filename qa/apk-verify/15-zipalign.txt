@@ -1,0 +1,5 @@
+ 1663060 res/zR.png (OK)
+ 1665812 res/zr.png (OK)
+ 1667832 res/zz.png (OK)
+ 1668760 resources.arsc (OK)
+Verification succesful

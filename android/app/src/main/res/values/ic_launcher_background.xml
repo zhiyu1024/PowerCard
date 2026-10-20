@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 从 public/icons/icon-512.png 取样得到的品牌绿，供自适应图标背景使用 -->
+    <color name="ic_launcher_background">#129C52</color>
+</resources>

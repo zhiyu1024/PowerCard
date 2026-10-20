@@ -1,0 +1,1 @@
+com.powercard.remote	1	1.0.0

@@ -1,0 +1,17 @@
+services:
+  powercard:
+    build: .
+    container_name: powercard-remote
+    ports:
+      - "8787:8787"
+    volumes:
+      - ./data:/app/data
+    environment:
+      TZ: Asia/Shanghai
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8787/api/health"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s

@@ -1,0 +1,116 @@
+plugins {
+    id 'com.android.application'
+}
+
+// 仓库根目录（android/ 的上一级）：构建前把 public/ 同步进 assets
+def repoRoot = rootProject.projectDir.parentFile
+def publicDir = new File(repoRoot, 'public')
+def assetsPublicDir = file('src/main/assets/public')
+
+// 签名配置：android/keystore/keystore.properties 由 scripts/build-android.ps1 生成，且被 .gitignore 忽略
+def keystorePropsFile = new File(rootProject.projectDir, 'keystore/keystore.properties')
+def keystoreProps = new Properties()
+if (keystorePropsFile.exists()) {
+    keystorePropsFile.withInputStream { keystoreProps.load(it) }
+}
+
+android {
+    namespace 'com.powercard.remote'
+    compileSdk 35
+    buildToolsVersion '35.0.0'
+
+    defaultConfig {
+        applicationId 'com.powercard.remote'
+        minSdk 26
+        targetSdk 35
+        versionCode 1
+        versionName '1.0.0'
+        resConfigs 'zh', 'en'
+    }
+
+    signingConfigs {
+        release {
+            if (keystorePropsFile.exists()) {
+                storeFile rootProject.file(keystoreProps.getProperty('storeFile', 'keystore/powercard-release.jks'))
+                storePassword keystoreProps.getProperty('storePassword')
+                keyAlias keystoreProps.getProperty('keyAlias', 'powercard')
+                keyPassword keystoreProps.getProperty('keyPassword')
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            // 调试包与 release 同包名，保留 WebView 调试开关；release 关闭（见 MainActivity）
+        }
+        release {
+            minifyEnabled false
+            shrinkResources false
+            if (keystorePropsFile.exists()) {
+                signingConfig signingConfigs.release
+            }
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+
+    packaging {
+        resources {
+            excludes += ['META-INF/*.kotlin_module']
+        }
+    }
+
+    lint {
+        abortOnError true
+        checkReleaseBuilds true
+    }
+}
+
+dependencies {
+    // WebViewAssetLoader：https://appassets.androidplatform.net 托管本地 UI
+    implementation 'androidx.webkit:webkit:1.12.1'
+    // WindowCompat / WindowInsetsCompat：edge-to-edge 安全区
+    implementation 'androidx.core:core:1.13.1'
+}
+
+/*
+ * 构建前把仓库根 public/ 同步到 app/src/main/assets/public/（含子目录，如 shared/parser.js）。
+ * 该副本属于构建产物，已被 android/.gitignore 忽略；clean 时一并清理。
+ */
+tasks.register('syncPublicAssets', Sync) {
+    group = 'build'
+    description = '同步仓库根 public/ 到 assets/public/（含 shared/parser.js）'
+    from(publicDir)
+    into(assetsPublicDir)
+    doFirst {
+        println "同步前端资源: ${publicDir} -> ${assetsPublicDir}"
+    }
+}
+
+tasks.register('cleanPublicAssets', Delete) {
+    group = 'build'
+    description = '删除同步生成的 assets/public/ 副本'
+    delete assetsPublicDir
+}
+
+tasks.named('preBuild') {
+    dependsOn 'syncPublicAssets'
+}
+
+tasks.configureEach { task ->
+    // AGP 的 merge*Assets 不保证依赖 preBuild，这里显式挂上
+    if (task.name.startsWith('merge') && task.name.endsWith('Assets')) {
+        task.dependsOn 'syncPublicAssets'
+    }
+    if (task.name == 'clean') {
+        task.dependsOn 'cleanPublicAssets'
+    }
+}

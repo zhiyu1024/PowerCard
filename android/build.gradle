@@ -1,0 +1,5 @@
+// 远程电脑控制 · Android 原生壳
+// Gradle 8.9 + AGP 8.7.3 + JDK 17 + Android SDK 35
+plugins {
+    id 'com.android.application' version '8.7.3' apply false
+}

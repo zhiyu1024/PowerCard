@@ -1,0 +1,64 @@
+README.md:7: - 安装包：[`dist/PowerCard-v1.0.0.apk`](dist/PowerCard-v1.0.0.apk)
+README.md:8: - SHA-256：`cdd4bf7c0f06f9f265ec8207f6a4a0a11f8b0646ca0b743609d592ae13c766ce`
+README.md:38: 1. 把 `dist/PowerCard-v1.0.0.apk` 传到手机（微信文件传输、数据线、网盘均可）。
+README.md:58: | 轮询间隔 / 请求超时 / 操作二次确认 | 默认 10 秒 / 5 秒 / 开启 |
+README.md:74: - **二次确认**：开机、关机、重启默认都弹确认框；可在设置里关闭「操作二次确认」。
+README.md:154: - 开机、关机、重启默认二次确认，防止误触。
+README.md:177: 4. 输出 `dist/PowerCard-v1.0.0.apk` 和 SHA-256；
+README.md:178: 5. 执行 apksigner、aapt2、APK 内容校验。
+README.md:201: ├─ PowerCard-v1.0.0.apk
+README.md:202: ├─ PowerCard-v1.0.0.apk.sha256
+README.md:203: └─ PowerCard-v1.0.0-debug.apk   仅调试用，非最终交付
+README.md:221: $env:NODE_OPTIONS='--test-isolation=none'; npm test
+README.md:224: npm run test:e2e
+README.md:227: npm run test:native
+README.md:233: android-sdk/build-tools/35.0.0/apksigner.bat verify --verbose dist/PowerCard-v1.0.0.apk
+README.md:234: android-sdk/build-tools/35.0.0/aapt2.exe dump badging dist/PowerCard-v1.0.0.apk
+README.md:235: Get-FileHash -Algorithm SHA256 dist/PowerCard-v1.0.0.apk
+README.md:256: - 看二次确认弹窗是否已确认；
+docs\android-bridge-contract.md:135: - 产出：`dist/PowerCard-v1.0.0.apk`，release 签名，附 SHA-256。
+docs\android-build.md:11: | `dist/PowerCard-v1.0.0.apk` | release 签名安装包（交付物） |
+docs\android-build.md:12: | `dist/PowerCard-v1.0.0.apk.sha256` | 上述 APK 的 SHA-256 |
+docs\android-build.md:13: | `dist/PowerCard-v1.0.0-debug.apk` | debug 包，用于快速安装验证 |
+docs\android-build.md:98: adb install -r dist\PowerCard-v1.0.0.apk
+docs\android-build.md:114: & "$bt\apksigner.bat" verify --verbose --print-certs dist\PowerCard-v1.0.0.apk
+docs\android-build.md:115: & "$bt\aapt2.exe" dump badging dist\PowerCard-v1.0.0.apk
+docs\android-build.md:116: tar -tf dist\PowerCard-v1.0.0.apk | Select-String "assets/public/(index.html|app.js|shared/parser.js)|classes.dex|AndroidManifest.xml"
+docs\android-build.md:117: Get-FileHash -Algorithm SHA256 dist\PowerCard-v1.0.0.apk
+docs\android-build.md:129: | `Installed Build Tools revision 35.0.0 is corrupted` | build-tools 目录结构不对；应为 `android-sdk/build-tools/35.0.0/`（含 `apksigner.bat`、`aapt2.exe`）。 |
+docs\android-build.md:141: - `dist/PowerCard-v1.0.0.apk`（1,697,462 字节）
+docs\android-build.md:142: SHA-256 `cdd4bf7c0f06f9f265ec8207f6a4a0a11f8b0646ca0b743609d592ae13c766ce`
+docs\android-build.md:143: - `dist/PowerCard-v1.0.0.apk.sha256`（内容与上面一致）
+docs\android-build.md:144: - `dist/PowerCard-v1.0.0-debug.apk`（2,185,012 字节，仅用于快速安装验证，非交付物）
+docs\android-build.md:145: - `apksigner verify --verbose --print-certs dist/PowerCard-v1.0.0.apk`：
+docs\android-build.md:147: 证书 SHA-256 `624d265b000a279d721896c691853b00fd77fc1cb25bd252c64dd5822c5f03e8`；RSA 2048。
+docs\android-build.md:148: - `aapt2 dump badging`：`package: name='com.powercard.remote' versionCode='1' versionName='1.0.0'`，
+docs\android-build.md:151: - Manifest（`aapt2 dump xmltree`）：`allowBackup=false`、`usesCleartextTraffic=true`、`enableOnBackInvokedCallback=false`，
+docs\android-build.md:163: - 本机未开启 CPU 虚拟化，不启动模拟器/真机自动化；构建与静态校验（apksigner/aapt2/unzip）通过即视为工具链与壳可用。
+docs\android-qa-report.md:3: - 交付物：`dist/PowerCard-v1.0.0.apk`
+docs\android-qa-report.md:6: - 大小：1,697,462 字节
+docs\android-qa-report.md:7: - SHA-256：`cdd4bf7c0f06f9f265ec8207f6a4a0a11f8b0646ca0b743609d592ae13c766ce`
+docs\android-qa-report.md:12: > 已尽可能用真实 APK 解包、`apksigner`、`aapt2`、DEX 检查和 Chromium“模拟 WebView 原生桥”覆盖运行时路径。
+docs\android-qa-report.md:20: | Release APK | `dist/PowerCard-v1.0.0.apk`（1,697,462 B） |
+docs\android-qa-report.md:21: | SHA-256 | `cdd4bf7c0f06f9f265ec8207f6a4a0a11f8b0646ca0b743609d592ae13c766ce` |
+docs\android-qa-report.md:22: | Debug APK | `dist/PowerCard-v1.0.0-debug.apk`（仅调试，非最终交付） |
+docs\android-qa-report.md:29: `apksigner verify --verbose --print-certs`：
+docs\android-qa-report.md:34: - 证书 SHA-256：`624d265b000a279d721896c691853b00fd77fc1cb25bd252c64dd5822c5f03e8`
+docs\android-qa-report.md:41: `aapt2 dump badging` / `dump xmltree`：
+docs\android-qa-report.md:123: $env:NODE_OPTIONS='--test-isolation=none'; npm test
+docs\android-qa-report.md:124: npm run test:native
+docs\android-qa-report.md:125: npm run test:e2e
+docs\android-qa-report.md:132: | 安卓 APK，不是 PWA | `PowerCard-v1.0.0.apk`，Java 原生壳 | 签名/包名/静态检查 |
+docs\android-qa-report.md:138: | 开机也二次确认 | 开机/关机/重启统一确认 | E2E 6/6 + 18/18 |
+docs\android-qa-report.md:158: & "$bt\apksigner.bat" verify --verbose --print-certs dist\PowerCard-v1.0.0.apk
+docs\android-qa-report.md:159: & "$bt\aapt2.exe" dump badging dist\PowerCard-v1.0.0.apk
+docs\android-qa-report.md:160: & "$bt\aapt2.exe" dump xmltree --file AndroidManifest.xml dist\PowerCard-v1.0.0.apk
+docs\android-qa-report.md:161: Get-FileHash -Algorithm SHA256 dist\PowerCard-v1.0.0.apk
+docs\android-qa-report.md:164: 期望 SHA-256：`cdd4bf7c0f06f9f265ec8207f6a4a0a11f8b0646ca0b743609d592ae13c766ce`
+docs\api-contract.md:286: - 开机、关机、重启在 `confirmActions` 为 true 时二次确认。
+docs\design-spec.md:89: 4. **刷新与操作**：轮询间隔 select（5/10/15/30/60 秒）、请求超时 select（3/5/8/10 秒）、操作二次确认 switch。
+docs\qa-report.md:70: | 13 | live 关机 | PASS | 二次确认后 mock **收到 GET `/power/off`**（有状态 mock 电源转 off），随后“电脑已关机”；再点刷新（`refresh=1`）命中 mock `/status/json`，仍显示“电脑已关机” |
+docs\qa-report.md:96: | [confirm-off.png](../qa/artifacts/confirm-off.png) | 关机二次确认弹窗（危险图标、取消/确认关机、遮罩 blur） |
+docs\qa-report.md:97: | [confirm-on.png](../qa/artifacts/confirm-on.png) | 开机二次确认弹窗（绿色成功图标、取消/确认开机） |
+docs\qa-report.md:187: ## 11. 需求追加：开机二次确认（2026-10-20 晚）
+docs\qa-report.md:189: - 用户追加要求：开机也必须二次确认。

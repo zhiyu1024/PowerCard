@@ -1,0 +1,14 @@
+node_modules
+.npm-cache
+.pw-browsers
+.browser-profile*
+.git
+.github
+data/config.json
+qa
+tests
+docs
+scripts
+*.log
+.DS_Store
+Thumbs.db

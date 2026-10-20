@@ -1,0 +1,36 @@
+DEX: qa\apk-verify\apk-extract\unzipped\classes.dex (4302324 bytes, 56605 ascii runs)
+
+[required class descriptors]
+FOUND   Lcom/powercard/remote/MainActivity;
+FOUND   Lcom/powercard/remote/NativeBridge;
+FOUND   Lcom/powercard/remote/NativeHttpClient;
+FOUND   Lcom/powercard/remote/SecureConfigStore;
+FOUND   Lcom/powercard/remote/RootAssetsPathHandler;
+
+[required bridge strings]
+FOUND   PowerCardNative
+FOUND   getConfigJson
+FOUND   saveConfigJson
+FOUND   httpGet
+FOUND   window.__powercardHttpResult
+FOUND   AES/GCM/NoPadding
+FOUND   copyText
+FOUND   getAppVersion
+
+[risky API-33 strings]
+ABSENT  OnBackInvoked
+ABSENT  OnBackInvokedDispatcher
+ABSENT  OnBackInvokedCallback
+
+[context strings]
+PRESENT setWebContentsDebuggingEnabled
+PRESENT addJavascriptInterface
+PRESENT setAllowFileAccess
+PRESENT shouldOverrideUrlLoading
+PRESENT HttpURLConnection
+PRESENT setRequestMethod
+ABSENT  Keystore
+PRESENT AndroidKeyStore
+PRESENT onBackPressed
+
+RESULT: required_failed=0

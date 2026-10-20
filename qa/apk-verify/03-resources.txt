@@ -1,0 +1,436 @@
+Binary APK
+Package name=com.powercard.remote id=7f
+  type attr id=01 entryCount=17
+    resource 0x7f010000 attr/alpha
+      () (attr) type=float
+    resource 0x7f010001 attr/font
+      () (attr) type=reference
+    resource 0x7f010002 attr/fontProviderAuthority
+      () (attr) type=string
+    resource 0x7f010003 attr/fontProviderCerts
+      () (attr) type=reference
+    resource 0x7f010004 attr/fontProviderFetchStrategy
+      () (attr) type=enum size=2
+        blocking(0x7f050027)=0x00000000
+        async(0x7f050026)=0x00000001
+    resource 0x7f010005 attr/fontProviderFetchTimeout
+      () (attr) type=integer|enum size=1
+        forever(0x7f05002b)=0xffffffff
+    resource 0x7f010006 attr/fontProviderPackage
+      () (attr) type=string
+    resource 0x7f010007 attr/fontProviderQuery
+      () (attr) type=string
+    resource 0x7f010008 attr/fontProviderSystemFontFamily
+      () (attr) type=string
+    resource 0x7f010009 attr/fontStyle
+      () (attr) type=enum size=2
+        normal(0x7f050033)=0x00000000
+        italic(0x7f050030)=0x00000001
+    resource 0x7f01000a attr/fontVariationSettings
+      () (attr) type=string
+    resource 0x7f01000b attr/fontWeight
+      () (attr) type=integer
+    resource 0x7f01000c attr/lStar
+      () (attr) type=float
+    resource 0x7f01000d attr/nestedScrollViewStyle
+      () (attr) type=reference
+    resource 0x7f01000e attr/queryPatterns
+      () (attr) type=reference
+    resource 0x7f01000f attr/shortcutMatchRequired
+      () (attr) type=boolean
+    resource 0x7f010010 attr/ttcIndex
+      () (attr) type=integer
+  type color id=02 entryCount=9
+    resource 0x7f020000 color/androidx_core_ripple_material_light
+      () #1f000000
+    resource 0x7f020001 color/androidx_core_secondary_text_default_material_light
+      () #8a000000
+    resource 0x7f020002 color/brand_green
+      () #ff1f8f4e
+    resource 0x7f020003 color/call_notification_answer_color
+      () #ff1d873b
+    resource 0x7f020004 color/call_notification_decline_color
+      () #ffd93025
+    resource 0x7f020005 color/ic_launcher_background
+      () #ff129c52
+    resource 0x7f020006 color/notification_action_color_filter
+      () @color/androidx_core_secondary_text_default_material_light
+    resource 0x7f020007 color/notification_icon_bg_color
+      () #ff9e9e9e
+    resource 0x7f020008 color/page_background
+      () #fff6f4ef
+  type dimen id=03 entryCount=22
+    resource 0x7f030000 dimen/compat_button_inset_horizontal_material
+      () 4.000000dp
+    resource 0x7f030001 dimen/compat_button_inset_vertical_material
+      () 6.000000dp
+    resource 0x7f030002 dimen/compat_button_padding_horizontal_material
+      () 8.000000dp
+    resource 0x7f030003 dimen/compat_button_padding_vertical_material
+      () 4.000000dp
+    resource 0x7f030004 dimen/compat_control_corner_material
+      () 2.000000dp
+    resource 0x7f030005 dimen/compat_notification_large_icon_max_height
+      () 320.000000dp
+    resource 0x7f030006 dimen/compat_notification_large_icon_max_width
+      () 320.000000dp
+    resource 0x7f030007 dimen/notification_action_icon_size
+      () 32.000000dp
+    resource 0x7f030008 dimen/notification_action_text_size
+      () 13.000000sp
+    resource 0x7f030009 dimen/notification_big_circle_margin
+      () 12.000000dp
+    resource 0x7f03000a dimen/notification_content_margin_start
+      () 0.000000dp
+    resource 0x7f03000b dimen/notification_large_icon_height
+      () 64.000000dp
+    resource 0x7f03000c dimen/notification_large_icon_width
+      () 64.000000dp
+    resource 0x7f03000d dimen/notification_main_column_padding_top
+      () 0.000000dp
+    resource 0x7f03000e dimen/notification_media_narrow_margin
+      () 12.000000dp
+    resource 0x7f03000f dimen/notification_right_icon_size
+      () 16.000000dp
+    resource 0x7f030010 dimen/notification_right_side_padding_top
+      () 4.000000dp
+    resource 0x7f030011 dimen/notification_small_icon_background_padding
+      () 3.000000dp
+    resource 0x7f030012 dimen/notification_small_icon_size_as_large
+      () 24.000000dp
+    resource 0x7f030013 dimen/notification_subtext_size
+      () 13.000000sp
+    resource 0x7f030014 dimen/notification_top_pad
+      () 10.000000dp
+    resource 0x7f030015 dimen/notification_top_pad_large_text
+      () 5.000000dp
+  type drawable id=04 entryCount=19
+    resource 0x7f040000 drawable/ic_call_answer
+      (ldpi) (file) res/Q-.png type=PNG
+      (mdpi) (file) res/Ff.png type=PNG
+      (hdpi) (file) res/gr.png type=PNG
+      (xhdpi) (file) res/aR.png type=PNG
+      (xxhdpi) (file) res/zz.png type=PNG
+      (xxxhdpi) (file) res/MD.png type=PNG
+      (anydpi) (file) res/8t.xml type=XML
+    resource 0x7f040001 drawable/ic_call_answer_low
+      (ldpi) (file) res/w7.png type=PNG
+      (mdpi) (file) res/bi.png type=PNG
+      (hdpi) (file) res/W5.png type=PNG
+      (xhdpi) (file) res/Y9.png type=PNG
+      (xxhdpi) (file) res/7m.png type=PNG
+      (xxxhdpi) (file) res/0Z.png type=PNG
+      (anydpi) (file) res/Tl.xml type=XML
+    resource 0x7f040002 drawable/ic_call_answer_video
+      (ldpi) (file) res/6P.png type=PNG
+      (mdpi) (file) res/zL.png type=PNG
+      (hdpi) (file) res/7V.png type=PNG
+      (xhdpi) (file) res/GY.png type=PNG
+      (xxhdpi) (file) res/Y3.png type=PNG
+      (xxxhdpi) (file) res/OX1.png type=PNG
+      (anydpi) (file) res/Ac.xml type=XML
+    resource 0x7f040003 drawable/ic_call_answer_video_low
+      (ldpi) (file) res/td.png type=PNG
+      (mdpi) (file) res/Ec.png type=PNG
+      (hdpi) (file) res/Tr.png type=PNG
+      (xhdpi) (file) res/71.png type=PNG
+      (xxhdpi) (file) res/OM.png type=PNG
+      (xxxhdpi) (file) res/Ag.png type=PNG
+      (anydpi) (file) res/G2.xml type=XML
+    resource 0x7f040004 drawable/ic_call_decline
+      (ldpi) (file) res/YD.png type=PNG
+      (mdpi) (file) res/LO.png type=PNG
+      (hdpi) (file) res/OX.png type=PNG
+      (xhdpi) (file) res/6d.png type=PNG
+      (xxhdpi) (file) res/5P.png type=PNG
+      (xxxhdpi) (file) res/p8.png type=PNG
+      (anydpi) (file) res/D-.xml type=XML
+    resource 0x7f040005 drawable/ic_call_decline_low
+      (ldpi) (file) res/5v.png type=PNG
+      (mdpi) (file) res/BT.png type=PNG
+      (hdpi) (file) res/kS.png type=PNG
+      (xhdpi) (file) res/VW.png type=PNG
+      (xxhdpi) (file) res/aU.png type=PNG
+      (xxxhdpi) (file) res/Ck.png type=PNG
+      (anydpi) (file) res/_H.xml type=XML
+    resource 0x7f040006 drawable/notification_action_background
+      () (file) res/Ws.xml type=XML
+    resource 0x7f040007 drawable/notification_bg
+      () (file) res/nz.xml type=XML
+    resource 0x7f040008 drawable/notification_bg_low
+      () (file) res/df.xml type=XML
+    resource 0x7f040009 drawable/notification_bg_low_normal
+      (mdpi) (file) res/gK.9.png type=PNG
+      (hdpi) (file) res/je.9.png type=PNG
+      (xhdpi) (file) res/xa.9.png type=PNG
+    resource 0x7f04000a drawable/notification_bg_low_pressed
+      (mdpi) (file) res/U-.9.png type=PNG
+      (hdpi) (file) res/2K.9.png type=PNG
+      (xhdpi) (file) res/o_.9.png type=PNG
+    resource 0x7f04000b drawable/notification_bg_normal
+      (mdpi) (file) res/C_.9.png type=PNG
+      (hdpi) (file) res/sA.9.png type=PNG
+      (xhdpi) (file) res/z-.9.png type=PNG
+    resource 0x7f04000c drawable/notification_bg_normal_pressed
+      (mdpi) (file) res/vL.9.png type=PNG
+      (hdpi) (file) res/wN.9.png type=PNG
+      (xhdpi) (file) res/Ma.9.png type=PNG
+    resource 0x7f04000d drawable/notification_icon_background
+      () (file) res/c6.xml type=XML
+    resource 0x7f04000e drawable/notification_oversize_large_icon_bg
+      (hdpi) (file) res/pu.png type=PNG
+    resource 0x7f04000f drawable/notification_template_icon_bg
+      () #3333b5e5
+    resource 0x7f040010 drawable/notification_template_icon_low_bg
+      () #0cffffff
+    resource 0x7f040011 drawable/notification_tile_bg
+      () (file) res/9m.xml type=XML
+    resource 0x7f040012 drawable/notify_panel_notification_icon_bg
+      (mdpi) (file) res/s4.png type=PNG
+      (hdpi) (file) res/pY.png type=PNG
+      (xhdpi) (file) res/5c.png type=PNG
+  type id id=05 entryCount=75
+    resource 0x7f050000 id/accessibility_action_clickable_span
+      () (id)
+    resource 0x7f050001 id/accessibility_custom_action_0
+      () (id)
+    resource 0x7f050002 id/accessibility_custom_action_1
+      () (id)
+    resource 0x7f050003 id/accessibility_custom_action_10
+      () (id)
+    resource 0x7f050004 id/accessibility_custom_action_11
+      () (id)
+    resource 0x7f050005 id/accessibility_custom_action_12
+      () (id)
+    resource 0x7f050006 id/accessibility_custom_action_13
+      () (id)
+    resource 0x7f050007 id/accessibility_custom_action_14
+      () (id)
+    resource 0x7f050008 id/accessibility_custom_action_15
+      () (id)
+    resource 0x7f050009 id/accessibility_custom_action_16
+      () (id)
+    resource 0x7f05000a id/accessibility_custom_action_17
+      () (id)
+    resource 0x7f05000b id/accessibility_custom_action_18
+      () (id)
+    resource 0x7f05000c id/accessibility_custom_action_19
+      () (id)
+    resource 0x7f05000d id/accessibility_custom_action_2
+      () (id)
+    resource 0x7f05000e id/accessibility_custom_action_20
+      () (id)
+    resource 0x7f05000f id/accessibility_custom_action_21
+      () (id)
+    resource 0x7f050010 id/accessibility_custom_action_22
+      () (id)
+    resource 0x7f050011 id/accessibility_custom_action_23
+      () (id)
+    resource 0x7f050012 id/accessibility_custom_action_24
+      () (id)
+    resource 0x7f050013 id/accessibility_custom_action_25
+      () (id)
+    resource 0x7f050014 id/accessibility_custom_action_26
+      () (id)
+    resource 0x7f050015 id/accessibility_custom_action_27
+      () (id)
+    resource 0x7f050016 id/accessibility_custom_action_28
+      () (id)
+    resource 0x7f050017 id/accessibility_custom_action_29
+      () (id)
+    resource 0x7f050018 id/accessibility_custom_action_3
+      () (id)
+    resource 0x7f050019 id/accessibility_custom_action_30
+      () (id)
+    resource 0x7f05001a id/accessibility_custom_action_31
+      () (id)
+    resource 0x7f05001b id/accessibility_custom_action_4
+      () (id)
+    resource 0x7f05001c id/accessibility_custom_action_5
+      () (id)
+    resource 0x7f05001d id/accessibility_custom_action_6
+      () (id)
+    resource 0x7f05001e id/accessibility_custom_action_7
+      () (id)
+    resource 0x7f05001f id/accessibility_custom_action_8
+      () (id)
+    resource 0x7f050020 id/accessibility_custom_action_9
+      () (id)
+    resource 0x7f050021 id/action_container
+      () (id)
+    resource 0x7f050022 id/action_divider
+      () (id)
+    resource 0x7f050023 id/action_image
+      () (id)
+    resource 0x7f050024 id/action_text
+      () (id)
+    resource 0x7f050025 id/actions
+      () (id)
+    resource 0x7f050026 id/async
+      () (id)
+    resource 0x7f050027 id/blocking
+      () (id)
+    resource 0x7f050028 id/chronometer
+      () (id)
+    resource 0x7f050029 id/dialog_button
+      () (id)
+    resource 0x7f05002a id/edit_text_id
+      () (id)
+    resource 0x7f05002b id/forever
+      () (id)
+    resource 0x7f05002c id/hide_ime_id
+      () (id)
+    resource 0x7f05002d id/icon
+      () (id)
+    resource 0x7f05002e id/icon_group
+      () (id)
+    resource 0x7f05002f id/info
+      () (id)
+    resource 0x7f050030 id/italic
+      () (id)
+    resource 0x7f050031 id/line1
+      () (id)
+    resource 0x7f050032 id/line3
+      () (id)
+    resource 0x7f050033 id/normal
+      () (id)
+    resource 0x7f050034 id/notification_background
+      () (id)
+    resource 0x7f050035 id/notification_main_column
+      () (id)
+    resource 0x7f050036 id/notification_main_column_container
+      () (id)
+    resource 0x7f050037 id/right_icon
+      () (id)
+    resource 0x7f050038 id/right_side
+      () (id)
+    resource 0x7f050039 id/tag_accessibility_actions
+      () (id)
+    resource 0x7f05003a id/tag_accessibility_clickable_spans
+      () (id)
+    resource 0x7f05003b id/tag_accessibility_heading
+      () (id)
+    resource 0x7f05003c id/tag_accessibility_pane_title
+      () (id)
+    resource 0x7f05003d id/tag_on_apply_window_listener
+      () (id)
+    resource 0x7f05003e id/tag_on_receive_content_listener
+      () (id)
+    resource 0x7f05003f id/tag_on_receive_content_mime_types
+      () (id)
+    resource 0x7f050040 id/tag_screen_reader_focusable
+      () (id)
+    resource 0x7f050041 id/tag_state_description
+      () (id)
+    resource 0x7f050042 id/tag_transition_group
+      () (id)
+    resource 0x7f050043 id/tag_unhandled_key_event_manager
+      () (id)
+    resource 0x7f050044 id/tag_unhandled_key_listeners
+      () (id)
+    resource 0x7f050045 id/tag_window_insets_animation_callback
+      () (id)
+    resource 0x7f050046 id/text
+      () (id)
+    resource 0x7f050047 id/text2
+      () (id)
+    resource 0x7f050048 id/time
+      () (id)
+    resource 0x7f050049 id/title
+      () (id)
+    resource 0x7f05004a id/view_tree_lifecycle_owner
+      () (id)
+  type integer id=06 entryCount=1
+    resource 0x7f060000 integer/status_bar_notification_info_maxnum
+      () 999
+  type layout id=07 entryCount=9
+    resource 0x7f070000 layout/custom_dialog
+      () (file) res/_y.xml type=XML
+    resource 0x7f070001 layout/ime_base_split_test_activity
+      () (file) res/cr.xml type=XML
+    resource 0x7f070002 layout/ime_secondary_split_test_activity
+      () (file) res/4z.xml type=XML
+    resource 0x7f070003 layout/notification_action
+      () (file) res/S8.xml type=XML
+    resource 0x7f070004 layout/notification_action_tombstone
+      () (file) res/a0.xml type=XML
+    resource 0x7f070005 layout/notification_template_custom_big
+      () (file) res/xN.xml type=XML
+    resource 0x7f070006 layout/notification_template_icon_group
+      () (file) res/iQ.xml type=XML
+    resource 0x7f070007 layout/notification_template_part_chronometer
+      () (file) res/lR.xml type=XML
+    resource 0x7f070008 layout/notification_template_part_time
+      () (file) res/cV.xml type=XML
+  type mipmap id=08 entryCount=3
+    resource 0x7f080000 mipmap/ic_launcher
+      (mdpi) (file) res/9w.png type=PNG
+      (hdpi) (file) res/yn.png type=PNG
+      (xhdpi) (file) res/FS.png type=PNG
+      (xxhdpi) (file) res/RJ.png type=PNG
+      (xxxhdpi) (file) res/o-.png type=PNG
+      (anydpi) (file) res/BW.xml type=XML
+    resource 0x7f080001 mipmap/ic_launcher_foreground
+      (mdpi) (file) res/QZ.png type=PNG
+      (hdpi) (file) res/zr.png type=PNG
+      (xhdpi) (file) res/Em.png type=PNG
+      (xxhdpi) (file) res/Lf.png type=PNG
+      (xxxhdpi) (file) res/as.png type=PNG
+    resource 0x7f080002 mipmap/ic_launcher_round
+      (mdpi) (file) res/zR.png type=PNG
+      (hdpi) (file) res/8c.png type=PNG
+      (xhdpi) (file) res/wb.png type=PNG
+      (xxhdpi) (file) res/fO.png type=PNG
+      (xxxhdpi) (file) res/Gc.png type=PNG
+      (anydpi) (file) res/0K.xml type=XML
+  type string id=09 entryCount=11
+    resource 0x7f090000 string/androidx_startup
+      () "androidx.startup"
+    resource 0x7f090001 string/app_name
+      () "远程电脑控制"
+    resource 0x7f090002 string/call_notification_answer_action
+      () "Answer"
+    resource 0x7f090003 string/call_notification_answer_video_action
+      () "Video"
+    resource 0x7f090004 string/call_notification_decline_action
+      () "Decline"
+    resource 0x7f090005 string/call_notification_hang_up_action
+      () "Hang Up"
+    resource 0x7f090006 string/call_notification_incoming_text
+      () "Incoming call"
+    resource 0x7f090007 string/call_notification_ongoing_text
+      () "Ongoing call"
+    resource 0x7f090008 string/call_notification_screening_text
+      () "Screening an incoming call"
+    resource 0x7f090009 string/status_bar_notification_info_overflow
+      () "999+"
+    resource 0x7f09000a string/webview_unavailable
+      () "WebView 不可用，无法显示界面"
+  type style id=0a entryCount=8
+    resource 0x7f0a0000 style/TextAppearance.Compat.Notification
+      () (style) size=0 parent=0x010301fe
+    resource 0x7f0a0001 style/TextAppearance.Compat.Notification.Info
+      () (style) size=0 parent=0x01030200
+    resource 0x7f0a0002 style/TextAppearance.Compat.Notification.Line2
+      () (style) size=0 parent=style/TextAppearance.Compat.Notification.Info (0x7f0a0001)
+    resource 0x7f0a0003 style/TextAppearance.Compat.Notification.Time
+      () (style) size=0 parent=0x01030202
+    resource 0x7f0a0004 style/TextAppearance.Compat.Notification.Title
+      () (style) size=0 parent=0x01030203
+    resource 0x7f0a0005 style/Theme.PowerCard
+      () (style) size=7 parent=0x01030241
+        0x01010054=@color/page_background
+        0x01010056=true
+        0x01010435=@color/brand_green
+        0x01010450=true
+        0x01010451=@0x0106000d
+        0x01010452=@0x0106000d
+        0x010104e0=true
+    resource 0x7f0a0006 style/Widget.Compat.NotificationActionContainer
+      () (style) size=1
+        0x010100d4=@drawable/notification_action_background
+    resource 0x7f0a0007 style/Widget.Compat.NotificationActionText
+      () (style) size=3
+        0x01010034=?0x01010207
+        0x01010095=@dimen/notification_action_text_size
+        0x01010098=@color/androidx_core_secondary_text_default_material_light

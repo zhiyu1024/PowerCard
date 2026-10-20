@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 与 Web 前端页面背景一致的暖白；系统栏在 MainActivity 中按 edge-to-edge 规则处理，深色图标 -->
+    <color name="page_background">#F6F4EF</color>
+    <color name="brand_green">#1F8F4E</color>
+</resources>

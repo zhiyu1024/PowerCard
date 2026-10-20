@@ -1,0 +1,25 @@
+PASS  首屏 390×844（演示模式）  (1327ms)
+PASS  首屏 360×800（演示模式）  (1241ms)
+PASS  首屏 765×403（演示模式）  (1227ms)
+PASS  桌面 1280×800（单列居中 / 视觉层次）  (1343ms)
+PASS  关机：确认弹窗（焦点在取消）→ 2–3s 内变为“电脑已关机”  (3633ms)
+PASS  开机：确认后恢复“电脑已开机”  (2834ms)
+PASS  刷新按钮：立即进入 aria-busy/旋转，完成后恢复且不弹重复 toast  (1196ms)
+PASS  设置抽屉：14 个字段/选择器齐全，打开后焦点进入、可滚动  (818ms)
+PASS  非法 URL：字段级错误且抽屉不关闭，不发送 PUT  (60ms)
+PASS  Esc 关闭设置抽屉，焦点回到调试按钮  (239ms)
+PASS  连接测试：填 mock 状态 URL 后显示接口可用/在线/已开机，且不保存  (422ms)
+PASS  保存四项 mock URL → 模式变 live，状态来自 mock 设备  (733ms)
+PASS  live 关机：mock 收到 GET /power/off，刷新后状态为“电脑已关机”  (2001ms)
+PASS  日志面板：能看到 status / command 记录与当前模式  (1009ms)
+PASS  刷新页面后临时 CONFIG_PATH 配置仍在，且仍是 live  (52ms)
+PASS  静态 / PWA：manifest、sw.js、图标 200，页面 link[rel=manifest] 存在  (11ms)
+PASS  Service Worker 成功注册并接管（独立 context）  (647ms)
+PASS  全流程无 console error / pageerror / 失败请求  (0ms)
+
+========================================================================
+用例：18  通过：18  失败：0
+截图：qa/artifacts/mobile-home.png, qa/artifacts/qa-360x800.png, qa/artifacts/qa-765x403.png, qa/artifacts/desktop-home.png, qa/artifacts/confirm-off.png, qa/artifacts/mobile-off.png, qa/artifacts/mobile-on.png, qa/artifacts/mobile-settings.png, qa/artifacts/live-mode.png, qa/artifacts/live-settings-logs.png
+结果：qa\artifacts\results.json
+========================================================================
+WEB_EXIT=0

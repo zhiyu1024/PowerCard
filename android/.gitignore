@@ -1,0 +1,17 @@
+# Gradle 构建产物
+.gradle/
+build/
+app/build/
+local.properties
+
+# 构建时从仓库根 public/ 同步的前端资源副本（由 Gradle syncPublicAssets 生成，不提交）
+app/src/main/assets/public/
+
+# 签名密钥与口令（绝不提交）
+keystore/*.jks
+keystore/*.keystore
+keystore/keystore.properties
+
+# 安装包
+*.apk
+*.aab
