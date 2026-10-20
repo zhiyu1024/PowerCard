@@ -1,0 +1,12 @@
+widget_label = Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8 电脑开关机
+widget_description = Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8 查看电脑开关机状态；开机、关机前需要二次确认。
+widget_unconfigured_full = Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8 未配置 · 打开 App 设置
+widget_unconfigured = Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8 未配置
+widget_unconfigured_action = Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8 打开 App 设置
+widget_confirm_on_title = Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8 确认开机？
+widget_confirm_off_title = Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8 确认关机？
+widget_action_sent = Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8 已发送，正在刷新…
+widget_action_failed = Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8 发送失败 · 点击刷新重试
+widget_btn_on = Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8 开机
+widget_btn_off = Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8 关机
+widget_btn_refresh = Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8 刷新

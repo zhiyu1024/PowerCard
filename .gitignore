@@ -7,6 +7,7 @@ qa/*.png
 qa/*.log
 qa/*.cjs
 qa/apk-verify/apk-extract/
+qa/widget-verify/apk-extract/
 *.log
 !qa/artifacts/repeat-run.log
 .cdp-*.cjs

@@ -110,13 +110,63 @@ if (native && typeof native.getConfigJson === "function" && typeof native.httpGe
   const api = createNativeApi(bridge);
   const originalFetch = window.fetch.bind(window);
 
+  function refreshWidgetsQuietly() {
+    try {
+      if (native && typeof native.refreshWidgets === "function") {
+        native.refreshWidgets();
+      }
+    } catch {
+      /* 小组件刷新失败不影响应用 */
+    }
+  }
+
   window.fetch = function nativeFetch(input, init = {}) {
     const raw = typeof input === "string" ? input : input && input.url;
     if (typeof raw === "string" && raw.startsWith("/api/")) {
-      return api.handleApiRequest(raw, init);
+      const promise = api.handleApiRequest(raw, init);
+      const method = String(init.method || "GET").toUpperCase();
+      if (raw.startsWith("/api/command")) {
+        // 无论指令成功与否都让小组件刷新一次，显示最新状态/错误。
+        promise.then(refreshWidgetsQuietly, () => {});
+      } else if (raw.startsWith("/api/config") && method === "PUT") {
+        promise.then((response) => {
+          if (response && response.status === 200) refreshWidgetsQuietly();
+        }, () => {});
+      }
+      return promise;
     }
     return originalFetch(input, init);
   };
+
+  // 设置页“桌面小组件”区块只在 APK 原生模式显示；浏览器/PWA 保持隐藏。
+  function setupWidgetSection() {
+    const section = document.getElementById("widgetSection");
+    if (!section) return;
+    section.hidden = false;
+    const button = document.getElementById("addWidgetBtn");
+    const hint = document.getElementById("widgetHint");
+    if (!button) return;
+    button.addEventListener("click", () => {
+      let requested = false;
+      try {
+        requested = native.requestPinWidget && native.requestPinWidget() === true;
+      } catch {
+        requested = false;
+      }
+      if (hint) {
+        hint.hidden = false;
+        hint.textContent = requested
+          ? "已发起添加，请按系统提示把小组件放到桌面。"
+          : "当前桌面不支持自动添加：请长按桌面空白处 → 小组件 → 选择「远程电脑控制」。";
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupWidgetSection, { once: true });
+  } else {
+    setupWidgetSection();
+  }
 
   // Android 返回键：先让网页关闭设置抽屉 / 确认框；返回 true 表示已消费。
   window.__powercardBack = function powercardBack() {

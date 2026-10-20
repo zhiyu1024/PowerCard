@@ -1,0 +1,34 @@
+== SHA256 v1.1.0 release ==
+5AF3560855F5707AE0718F86DAEDD1BC69B72EEDA71F32EC0DACC39D7FB22599
+== .sha256 file ==
+5af3560855f5707ae0718f86daedd1bc69b72eeda71f32ec0dacc39d7fb22599  PowerCard-v1.1.0.apk
+== size v1.1.0 ==
+1722546
+== debug v1.1.0 sha/size ==
+CE1911CBECC43584BAF0395608EF280F9AF2C338FD93365CBCB089CDC36B506B
+2248938
+== apksigner v1.1.0 ==
+Verifies
+Verified using v1 scheme (JAR signing): false
+Verified using v2 scheme (APK Signature Scheme v2): true
+Verified using v3 scheme (APK Signature Scheme v3): false
+Verified using v3.1 scheme (APK Signature Scheme v3.1): false
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+Signer #1 certificate DN: CN=PowerCard Remote, OU=PowerCard, O=PowerCard, L=Local, ST=Local, C=CN
+Signer #1 certificate SHA-256 digest: 624d265b000a279d721896c691853b00fd77fc1cb25bd252c64dd5822c5f03e8
+Signer #1 certificate SHA-1 digest: e9ec69f541c5df6c15e67eb9c61fb9566208d0be
+Signer #1 certificate MD5 digest: 66bc8ba107dd5c8442fced9a61f883e9
+Signer #1 key algorithm: RSA
+Signer #1 key size (bits): 2048
+Signer #1 public key SHA-256 digest: 96a235c1513ce4aead8a3c81002cd916fc19097f2338ca4c67ef7a58412028f3
+Signer #1 public key SHA-1 digest: 3a800cbfbb24d17d5dc889d3e02e4ae839ddf301
+Signer #1 public key MD5 digest: 314d49332d0b0296fee2b398be74d7ff
+== apksigner v1.0.0 (same keystore check) ==
+
+Verifies
+Signer #1 certificate DN: CN=PowerCard Remote, OU=PowerCard, O=PowerCard, L=Local, ST=Local, C=CN
+Signer #1 certificate SHA-256 digest: 624d265b000a279d721896c691853b00fd77fc1cb25bd252c64dd5822c5f03e8
+Signer #1 key algorithm: RSA
+

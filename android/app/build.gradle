@@ -23,8 +23,8 @@ android {
         applicationId 'com.powercard.remote'
         minSdk 26
         targetSdk 35
-        versionCode 1
-        versionName '1.0.0'
+        versionCode 2
+        versionName '1.1.0'
         resConfigs 'zh', 'en'
     }
 
@@ -72,6 +72,14 @@ android {
         abortOnError true
         checkReleaseBuilds true
     }
+
+    testOptions {
+        unitTests {
+            // 小组件状态解析器是纯 Java（org.json），单测不需要 Android 资源
+            includeAndroidResources = false
+            returnDefaultValues = true
+        }
+    }
 }
 
 dependencies {
@@ -79,6 +87,10 @@ dependencies {
     implementation 'androidx.webkit:webkit:1.12.1'
     // WindowCompat / WindowInsetsCompat：edge-to-edge 安全区
     implementation 'androidx.core:core:1.13.1'
+
+    // 单元测试：JUnit4 + 真实 org.json 实现（android.jar 里的是 stub，不能用于单测）
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.json:json:20240303'
 }
 
 /*

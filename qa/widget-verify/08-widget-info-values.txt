@@ -1,0 +1,16 @@
+N: android=http://schemas.android.com/apk/res/android (line=16)
+  E: appwidget-provider (line=16)
+    A: http://schemas.android.com/apk/res/android:description(0x01010020)=@0x7f090019
+    A: http://schemas.android.com/apk/res/android:minWidth(0x0101013f)=250.000000dp
+    A: http://schemas.android.com/apk/res/android:minHeight(0x01010140)=110.000000dp
+    A: http://schemas.android.com/apk/res/android:updatePeriodMillis(0x01010250)=1800000
+    A: http://schemas.android.com/apk/res/android:initialLayout(0x01010251)=@0x7f07000b
+    A: http://schemas.android.com/apk/res/android:resizeMode(0x01010363)=0x00000003
+    A: http://schemas.android.com/apk/res/android:minResizeWidth(0x01010395)=110.000000dp
+    A: http://schemas.android.com/apk/res/android:minResizeHeight(0x01010396)=110.000000dp
+    A: http://schemas.android.com/apk/res/android:widgetCategory(0x010103c4)=0x00000001
+    A: http://schemas.android.com/apk/res/android:previewLayout(0x01010627)=@0x7f07000b
+    A: http://schemas.android.com/apk/res/android:maxResizeWidth(0x01010632)=380.000000dp
+    A: http://schemas.android.com/apk/res/android:maxResizeHeight(0x01010633)=240.000000dp
+    A: http://schemas.android.com/apk/res/android:targetCellWidth(0x01010634)=4
+    A: http://schemas.android.com/apk/res/android:targetCellHeight(0x01010635)=2

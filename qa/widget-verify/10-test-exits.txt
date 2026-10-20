@@ -1,0 +1,3 @@
+npm_test_exit=0
+web_e2e_exit=0
+native_e2e_exit=0

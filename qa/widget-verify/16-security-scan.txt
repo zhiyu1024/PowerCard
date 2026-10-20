@@ -1,0 +1,59 @@
+scanned files: 231
+
+[private-ip-address] 37 match(es)
+  by source: APK=6, docs=14, public=6, android-src=11
+  APK qa/widget-verify/apk-extract/unzipped/assets/public/index.html
+    context: k="false" placeholder="http://192.168.1.50/status" aria-describedby="sta
+  APK qa/widget-verify/apk-extract/unzipped/assets/public/index.html
+    context: k="false" placeholder="http://192.168.1.50/power/on" aria-describedby="p
+  APK qa/widget-verify/apk-extract/unzipped/assets/public/index.html
+    context: k="false" placeholder="http://192.168.1.50/power/off" aria-describedby="
+  APK qa/widget-verify/apk-extract/unzipped/assets/public/index.html
+    context: k="false" placeholder="http://192.168.1.50/reboot" aria-describedby="reb
+  APK qa/widget-verify/apk-extract/unzipped/assets/public/index.html
+    context: ellcheck="false" placeholder="192.168.1.50" aria-describedby="lanAddress
+  APK qa/widget-verify/apk-extract/unzipped/assets/public/index.html
+    context: ellcheck="false" placeholder="192.168.1.1" aria-describedby="gatewayErr
+  ... 31 more
+
+[keystore-password-key] 11 match(es)
+  by source: docs=2, scripts=9
+  docs docs/android-build.md
+    context: re.properties` `storeFile`/`storePassword`/`keyAlias`/`keyPassword`
+  docs docs/android-build.md
+    context: `/`storePassword`/`keyAlias`/`keyPassword` - `androi
+  scripts scripts/build-android.ps1
+    context: s" return } $storePassword = if ($env:POWERCARD_STORE_PA
+  scripts scripts/build-android.ps1
+    context: ).Substring(0, 32) } $keyPassword = if ($env:POWERCARD_KEY_PASS
+  scripts scripts/build-android.ps1
+    context: ERCARD_KEY_PASSWORD } else { $storePassword } Write-Host ' rel
+  scripts scripts/build-android.ps1
+    context: PKCS12 ` -storepass $storePassword -keypass $keyPassword `
+  ... 5 more
+
+[jks-filename] 14 match(es)
+  by source: docs=5, scripts=7, README=2
+  docs docs/android-build.md
+    context: keystore `android/keystore/powercard-release.jks` PKCS12 RSA 2048
+  docs docs/android-build.md
+    context: `android/keystore/keystore.properties` `storeFile`/`storePassword
+  docs docs/android-build.md
+    context: | `android/keystore/keystore.properties` `scripts\buil
+  docs docs/android-qa-report.md
+    context: keystore `android/keystore/powercard-release.jks` gitignore
+  docs docs/android-qa-report.md
+    context: roid/keystore/` `.jks`/`keystore.properties` `.android-toolchain/`
+  scripts scripts/build-android.ps1
+    context: keystore.properties
+  ... 8 more
+
+[mock-device-name] 2 match(es)
+  by source: scripts=2
+  scripts scripts/dev-mock-device.js
+    context: * * node scripts/dev-mock-device.js #
+  scripts scripts/dev-mock-device.js
+    context: .0.0.1:8788 * node scripts/dev-mock-device.js 8890 * *
+
+RESULT: total_matches=64 scanned=231
+apk: dist\PowerCard-v1.1.0.apk 1722546 bytes (zip listing provided by PowerShell evidence files)

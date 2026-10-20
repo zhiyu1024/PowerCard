@@ -37,6 +37,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--
+          桌面小组件（v1.1.0）：RemoteViews 实现，不依赖 WorkManager/Compose/Glance。
+          exported=false：只接收系统 APPWIDGET_UPDATE 与本 App 内部的显式广播/闹钟。
+          无需新增任何危险权限；不注册 RECEIVE_BOOT_COMPLETED（重启后由系统在下次
+          APPWIDGET_UPDATE / 打开 App / 手动刷新时恢复，避免申请开机广播权限）。
+        -->
+        <receiver
+            android:name=".PowerCardWidgetProvider"
+            android:exported="false"
+            android:label="@string/widget_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.powercard.remote.widget.REFRESH_ALL" />
+                <action android:name="com.powercard.remote.widget.WIDGET_REFRESH" />
+                <action android:name="com.powercard.remote.widget.POWER_ON" />
+                <action android:name="com.powercard.remote.widget.POWER_OFF" />
+                <action android:name="com.powercard.remote.widget.CONFIRM" />
+                <action android:name="com.powercard.remote.widget.CANCEL" />
+                <action android:name="com.powercard.remote.widget.DELAYED_REFRESH" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_info" />
+        </receiver>
     </application>
 
 </manifest>

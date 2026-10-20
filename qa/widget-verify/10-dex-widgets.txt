@@ -1,0 +1,249 @@
+
+M d 1	1	95	com.powercard.remote.NativeBridge void lambda$requestPinWidget$0(boolean[],java.util.concurrent.CountDownLatch)
+M d 1	1	60	com.powercard.remote.NativeBridge void refreshWidgets()
+M d 1	1	123	com.powercard.remote.NativeBridge boolean requestPinWidget()
+C d 20	20	5539	com.powercard.remote.WidgetStateParser
+M d 1	1	1254	com.powercard.remote.WidgetStateParser <clinit>()
+M d 1	1	39	com.powercard.remote.WidgetStateParser <init>()
+M d 1	1	56	com.powercard.remote.WidgetStateParser void addAll(java.util.Set,java.lang.String[])
+M d 1	1	219	com.powercard.remote.WidgetStateParser java.lang.String cleanupTextValue(java.lang.String)
+M d 1	1	659	com.powercard.remote.WidgetStateParser java.util.List collectCandidates(java.lang.Object)
+M d 1	1	121	com.powercard.remote.WidgetStateParser java.lang.String decodeEntities(java.lang.String)
+M d 1	1	41	com.powercard.remote.WidgetStateParser java.lang.Object jsonValue(java.lang.Object)
+M d 1	1	183	com.powercard.remote.WidgetStateParser boolean looksLikeApiEnvelope(org.json.JSONObject)
+M d 1	1	99	com.powercard.remote.WidgetStateParser boolean looksLikeHtml(java.lang.String,java.lang.String)
+M d 1	1	197	com.powercard.remote.WidgetStateParser java.lang.Boolean mapOnlineValue(java.lang.Object)
+M d 1	1	205	com.powercard.remote.WidgetStateParser java.lang.String mapPowerValue(java.lang.Object)
+M d 1	1	73	com.powercard.remote.WidgetStateParser java.lang.String normalizeKey(java.lang.String)
+M d 1	1	468	com.powercard.remote.WidgetStateParser com.powercard.remote.WidgetStateParser$Result parse(java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+M d 1	1	525	com.powercard.remote.WidgetStateParser com.powercard.remote.WidgetStateParser$TextStatus parseTextStatus(java.lang.String,java.lang.String)
+M d 1	1	163	com.powercard.remote.WidgetStateParser com.powercard.remote.WidgetStateParser$OnlinePick pickOnlineCandidate(java.util.List)
+M d 1	1	163	com.powercard.remote.WidgetStateParser com.powercard.remote.WidgetStateParser$PowerPick pickPowerCandidate(java.util.List)
+M d 1	1	79	com.powercard.remote.WidgetStateParser java.lang.String powerLabel(java.lang.String)
+M d 1	1	160	com.powercard.remote.WidgetStateParser java.lang.String replaceDecoded(java.lang.String,java.util.regex.Pattern,com.powercard.remote.WidgetStateParser$Decoder)
+M d 1	1	227	com.powercard.remote.WidgetStateParser java.lang.Object resolveFieldPath(java.lang.Object,java.lang.String)
+M d 1	1	139	com.powercard.remote.WidgetStateParser java.lang.String stripHtmlTags(java.lang.String)
+F d 0	0	12	com.powercard.remote.WidgetStateParser java.util.regex.Pattern ARRAY_INDEX
+F d 0	0	11	com.powercard.remote.WidgetStateParser java.util.regex.Pattern ENTITY_AMP
+F d 0	0	11	com.powercard.remote.WidgetStateParser java.util.regex.Pattern ENTITY_DEC
+F d 0	0	11	com.powercard.remote.WidgetStateParser java.util.regex.Pattern ENTITY_HEX
+F d 0	0	11	com.powercard.remote.WidgetStateParser java.util.regex.Pattern ENTITY_NAMED
+F d 0	0	11	com.powercard.remote.WidgetStateParser java.util.regex.Pattern HTML_BLOCK_END
+F d 0	0	11	com.powercard.remote.WidgetStateParser java.util.regex.Pattern HTML_BR
+F d 0	0	11	com.powercard.remote.WidgetStateParser java.util.regex.Pattern HTML_COMMENT
+F d 0	0	11	com.powercard.remote.WidgetStateParser java.util.regex.Pattern HTML_HINT
+F d 0	0	11	com.powercard.remote.WidgetStateParser java.util.regex.Pattern HTML_SCRIPT
+F d 0	0	11	com.powercard.remote.WidgetStateParser java.util.regex.Pattern HTML_TAG
+F d 0	0	11	com.powercard.remote.WidgetStateParser java.util.regex.Pattern KEY_VALUE_LINE
+F d 0	0	12	com.powercard.remote.WidgetStateParser int MAX_JSON_DEPTH
+F d 0	0	11	com.powercard.remote.WidgetStateParser java.util.regex.Pattern NORMALIZE_KEY
+F d 0	0	11	com.powercard.remote.WidgetStateParser java.util.regex.Pattern OFFLINE_KEYWORD
+F d 0	0	19	com.powercard.remote.WidgetStateParser java.util.Map ONLINE_KEYS
+F d 0	0	11	com.powercard.remote.WidgetStateParser java.util.regex.Pattern ONLINE_KEYWORD
+F d 0	0	19	com.powercard.remote.WidgetStateParser java.util.Set ONLINE_OFF_VALUES
+F d 0	0	19	com.powercard.remote.WidgetStateParser java.util.Set ONLINE_ON_VALUES
+F d 0	0	19	com.powercard.remote.WidgetStateParser java.util.Map ONLINE_TEXT_VALUES
+F d 0	0	19	com.powercard.remote.WidgetStateParser java.util.Map POWER_KEYS
+F d 0	0	13	com.powercard.remote.WidgetStateParser java.lang.String POWER_OFF
+F d 0	0	11	com.powercard.remote.WidgetStateParser java.util.regex.Pattern POWER_OFF_KEYWORD
+F d 0	0	19	com.powercard.remote.WidgetStateParser java.util.Set POWER_OFF_VALUES
+F d 0	0	13	com.powercard.remote.WidgetStateParser java.lang.String POWER_ON
+F d 0	0	11	com.powercard.remote.WidgetStateParser java.util.regex.Pattern POWER_ON_KEYWORD
+F d 0	0	19	com.powercard.remote.WidgetStateParser java.util.Set POWER_ON_VALUES
+F d 0	0	19	com.powercard.remote.WidgetStateParser java.util.Map POWER_TEXT_VALUES
+F d 0	0	13	com.powercard.remote.WidgetStateParser java.lang.String POWER_UNKNOWN
+F d 0	0	13	com.powercard.remote.WidgetStateParser java.lang.String UNKNOWN_POWER_WARNING
+C d 17	17	2069	com.powercard.remote.WidgetRefresher
+M d 1	1	94	com.powercard.remote.WidgetRefresher <clinit>()
+M d 1	1	39	com.powercard.remote.WidgetRefresher <init>()
+M d 1	1	53	com.powercard.remote.WidgetRefresher void cancelConfirm(android.content.Context,int)
+M d 1	1	80	com.powercard.remote.WidgetRefresher void cancelDelayedRefresh(android.content.Context,int)
+M d 1	1	88	com.powercard.remote.WidgetRefresher int[] currentWidgetIds(android.content.Context)
+M d 1	1	113	com.powercard.remote.WidgetRefresher void enterConfirm(android.content.Context,int,java.lang.String)
+M d 1	1	321	com.powercard.remote.WidgetRefresher java.lang.String errorShort(android.content.Context,com.powercard.remote.NativeHttpClient$HttpResult)
+M d 1	1	91	com.powercard.remote.WidgetRefresher void executeCommandAsync(android.content.Context,int,java.lang.String,java.lang.Runnable)
+M d 1	1	87	com.powercard.remote.WidgetRefresher void handleConfirmAsync(android.content.Context,int,java.lang.Runnable)
+M d 1	1	273	com.powercard.remote.WidgetRefresher void lambda$executeCommandAsync$1(android.content.Context,java.lang.String,int,java.lang.Runnable)
+M d 1	1	69	com.powercard.remote.WidgetRefresher void lambda$refreshAllAsync$0(android.content.Context,int[],java.lang.Runnable)
+M d 1	1	105	com.powercard.remote.WidgetRefresher void refreshAllAsync(android.content.Context,int[],java.lang.Runnable)
+M d 1	1	284	com.powercard.remote.WidgetRefresher void refreshBlocking(android.content.Context,int[])
+M d 1	1	57	com.powercard.remote.WidgetRefresher void refreshOneAsync(android.content.Context,int,java.lang.Runnable)
+M d 1	1	72	com.powercard.remote.WidgetRefresher void requestRefreshAll(android.content.Context)
+M d 1	1	52	com.powercard.remote.WidgetRefresher void runDone(java.lang.Runnable)
+M d 1	1	96	com.powercard.remote.WidgetRefresher void scheduleDelayedRefresh(android.content.Context,int)
+F d 0	0	19	com.powercard.remote.WidgetRefresher java.util.Set COMMAND_IN_FLIGHT
+F d 0	0	10	com.powercard.remote.WidgetRefresher java.util.concurrent.ExecutorService EXECUTOR
+F d 0	0	10	com.powercard.remote.WidgetRefresher java.util.concurrent.atomic.AtomicBoolean REFRESH_IN_FLIGHT
+C d 10	10	834	com.powercard.remote.WidgetContract
+M d 1	1	40	com.powercard.remote.WidgetContract <init>()
+M d 1	1	45	com.powercard.remote.WidgetContract android.app.PendingIntent clickCancel(android.content.Context,int)
+M d 1	1	45	com.powercard.remote.WidgetContract android.app.PendingIntent clickConfirm(android.content.Context,int)
+M d 1	1	45	com.powercard.remote.WidgetContract android.app.PendingIntent clickOff(android.content.Context,int)
+M d 1	1	45	com.powercard.remote.WidgetContract android.app.PendingIntent clickOn(android.content.Context,int)
+M d 1	1	45	com.powercard.remote.WidgetContract android.app.PendingIntent clickRefresh(android.content.Context,int)
+M d 1	1	45	com.powercard.remote.WidgetContract android.app.PendingIntent delayedRefreshAlarm(android.content.Context,int)
+M d 1	1	89	com.powercard.remote.WidgetContract android.app.PendingIntent openApp(android.content.Context)
+M d 1	1	45	com.powercard.remote.WidgetContract int requestCode(int,int)
+M d 1	1	81	com.powercard.remote.WidgetContract android.app.PendingIntent widgetBroadcast(android.content.Context,int,java.lang.String,int)
+F d 0	0	14	com.powercard.remote.WidgetContract java.lang.String ACTION_CANCEL
+F d 0	0	13	com.powercard.remote.WidgetContract java.lang.String ACTION_CONFIRM
+F d 0	0	13	com.powercard.remote.WidgetContract java.lang.String ACTION_DELAYED_REFRESH
+F d 0	0	13	com.powercard.remote.WidgetContract java.lang.String ACTION_OFF
+F d 0	0	13	com.powercard.remote.WidgetContract java.lang.String ACTION_ON
+F d 0	0	13	com.powercard.remote.WidgetContract java.lang.String ACTION_POWER_OFF
+F d 0	0	13	com.powercard.remote.WidgetContract java.lang.String ACTION_POWER_ON
+F d 0	0	13	com.powercard.remote.WidgetContract java.lang.String ACTION_REFRESH_ALL
+F d 0	0	13	com.powercard.remote.WidgetContract java.lang.String ACTION_WIDGET_REFRESH
+F d 0	0	13	com.powercard.remote.WidgetContract int COMPACT_WIDTH_DP
+F d 0	0	13	com.powercard.remote.WidgetContract long DELAYED_REFRESH_MS
+F d 0	0	13	com.powercard.remote.WidgetContract long LAST_ACTION_VISIBLE_MS
+F d 0	0	13	com.powercard.remote.WidgetContract int MIN_TIMEOUT_MS
+F d 0	0	13	com.powercard.remote.WidgetContract long PENDING_TTL_MS
+F d 0	0	12	com.powercard.remote.WidgetContract int SLOT_CANCEL
+F d 0	0	12	com.powercard.remote.WidgetContract int SLOT_CONFIRM
+F d 0	0	12	com.powercard.remote.WidgetContract int SLOT_DELAYED_REFRESH
+F d 0	0	12	com.powercard.remote.WidgetContract int SLOT_POWER_OFF
+F d 0	0	12	com.powercard.remote.WidgetContract int SLOT_POWER_ON
+F d 0	0	12	com.powercard.remote.WidgetContract int SLOT_REFRESH
+F d 0	0	13	com.powercard.remote.WidgetContract int WIDGET_TIMEOUT_MS
+C d 10	10	1280	com.powercard.remote.WidgetStore
+M d 1	1	66	com.powercard.remote.WidgetStore <init>(android.content.Context)
+M d 1	1	59	com.powercard.remote.WidgetStore java.lang.String actionKey(int,java.lang.String)
+M d 1	1	90	com.powercard.remote.WidgetStore void clearPending(int)
+M d 1	1	129	com.powercard.remote.WidgetStore void clearWidget(int)
+M d 1	1	149	com.powercard.remote.WidgetStore java.lang.String getPendingAction(int)
+M d 1	1	213	com.powercard.remote.WidgetStore com.powercard.remote.WidgetStore$Status loadStatus(int)
+M d 1	1	89	com.powercard.remote.WidgetStore void saveAction(int,java.lang.String,long)
+M d 1	1	73	com.powercard.remote.WidgetStore void saveFailure(java.lang.String,long)
+M d 1	1	97	com.powercard.remote.WidgetStore void saveSuccess(java.lang.String,boolean,boolean,long)
+M d 1	1	95	com.powercard.remote.WidgetStore void setPending(int,java.lang.String,long)
+F d 0	0	14	com.powercard.remote.WidgetStore java.lang.String KEY_ACTION_AT
+F d 0	0	13	com.powercard.remote.WidgetStore java.lang.String KEY_ACTION_MESSAGE
+F d 0	0	13	com.powercard.remote.WidgetStore java.lang.String KEY_ERROR_AT
+F d 0	0	13	com.powercard.remote.WidgetStore java.lang.String KEY_ERROR_MESSAGE
+F d 0	0	13	com.powercard.remote.WidgetStore java.lang.String KEY_ONLINE
+F d 0	0	13	com.powercard.remote.WidgetStore java.lang.String KEY_ONLINE_INFERRED
+F d 0	0	13	com.powercard.remote.WidgetStore java.lang.String KEY_PENDING_ACTION
+F d 0	0	13	com.powercard.remote.WidgetStore java.lang.String KEY_PENDING_EXPIRES
+F d 0	0	13	com.powercard.remote.WidgetStore java.lang.String KEY_POWER
+F d 0	0	13	com.powercard.remote.WidgetStore java.lang.String KEY_UPDATED_AT
+F d 0	0	13	com.powercard.remote.WidgetStore java.lang.String PREFS_NAME
+F d 0	0	11	com.powercard.remote.WidgetStore android.content.SharedPreferences preferences
+C d 9	9	866	com.powercard.remote.WidgetConfig
+M d 1	1	64	com.powercard.remote.WidgetConfig <init>(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,int)
+M d 1	1	67	com.powercard.remote.WidgetConfig com.powercard.remote.WidgetConfig empty()
+M d 1	1	188	com.powercard.remote.WidgetConfig com.powercard.remote.WidgetConfig fromJson(java.lang.String)
+M d 1	1	61	com.powercard.remote.WidgetConfig int intOrDefault(org.json.JSONObject,java.lang.String,int)
+M d 1	1	168	com.powercard.remote.WidgetConfig boolean isHttpUrl(java.lang.String)
+M d 1	1	57	com.powercard.remote.WidgetConfig java.lang.String stringOrEmpty(org.json.JSONObject,java.lang.String)
+M d 1	1	58	com.powercard.remote.WidgetConfig java.lang.String commandUrl(java.lang.String)
+M d 1	1	43	com.powercard.remote.WidgetConfig boolean hasStatusUrl()
+M d 1	1	59	com.powercard.remote.WidgetConfig int widgetTimeoutMs()
+F d 0	0	11	com.powercard.remote.WidgetConfig java.lang.String onlineField
+F d 0	0	10	com.powercard.remote.WidgetConfig java.lang.String powerField
+F d 0	0	10	com.powercard.remote.WidgetConfig java.lang.String powerOffUrl
+F d 0	0	10	com.powercard.remote.WidgetConfig java.lang.String powerOnUrl
+F d 0	0	10	com.powercard.remote.WidgetConfig int requestTimeoutMs
+F d 0	0	10	com.powercard.remote.WidgetConfig java.lang.String statusUrl
+C d 8	8	1329	com.powercard.remote.WidgetRenderer
+M d 1	1	40	com.powercard.remote.WidgetRenderer <init>()
+M d 1	1	203	com.powercard.remote.WidgetRenderer android.widget.RemoteViews buildConfirm(android.content.Context,int,boolean,java.lang.String)
+M d 1	1	577	com.powercard.remote.WidgetRenderer android.widget.RemoteViews buildNormal(android.content.Context,int,boolean,boolean,com.powercard.remote.WidgetStore)
+M d 1	1	89	com.powercard.remote.WidgetRenderer java.lang.String formatTime(long)
+M d 1	1	89	com.powercard.remote.WidgetRenderer boolean isCompact(android.os.Bundle)
+M d 1	1	103	com.powercard.remote.WidgetRenderer java.lang.String powerLabel(android.content.Context,java.lang.String)
+M d 1	1	53	com.powercard.remote.WidgetRenderer void render(android.content.Context,int)
+M d 1	1	135	com.powercard.remote.WidgetRenderer void render(android.content.Context,int,android.os.Bundle)
+C d 6	7	843	com.powercard.remote.PowerCardWidgetProvider
+M d 1	1	39	com.powercard.remote.PowerCardWidgetProvider void $r8$lambda$8wZ3QE6vvtlw1qzQ0KiyZF_LRHs(android.content.BroadcastReceiver$PendingResult)
+M d 1	1	39	com.powercard.remote.PowerCardWidgetProvider <init>()
+M d 1	1	38	com.powercard.remote.PowerCardWidgetProvider void onAppWidgetOptionsChanged(android.content.Context,android.appwidget.AppWidgetManager,int,android.os.Bundle)
+M d 1	1	77	com.powercard.remote.PowerCardWidgetProvider void onDeleted(android.content.Context,int[])
+M d 1	1	541	com.powercard.remote.PowerCardWidgetProvider void onReceive(android.content.Context,android.content.Intent)
+M d 1	1	61	com.powercard.remote.PowerCardWidgetProvider void onUpdate(android.content.Context,android.appwidget.AppWidgetManager,int[])
+C d 4	4	407	com.powercard.remote.WidgetStore$Status
+M d 1	1	72	com.powercard.remote.WidgetStore$Status <init>(java.lang.String,boolean,boolean,long,long,java.lang.String,long,java.lang.String)
+M d 1	1	62	com.powercard.remote.WidgetStore$Status boolean hasSuccess()
+M d 1	1	71	com.powercard.remote.WidgetStore$Status boolean isActionFresh(long,long)
+M d 1	1	53	com.powercard.remote.WidgetStore$Status boolean isErrorLatest()
+F d 0	0	11	com.powercard.remote.WidgetStore$Status long actionAt
+F d 0	0	10	com.powercard.remote.WidgetStore$Status java.lang.String actionMessage
+F d 0	0	10	com.powercard.remote.WidgetStore$Status long errorAt
+F d 0	0	10	com.powercard.remote.WidgetStore$Status java.lang.String errorMessage
+F d 0	0	10	com.powercard.remote.WidgetStore$Status boolean online
+F d 0	0	10	com.powercard.remote.WidgetStore$Status boolean onlineInferred
+F d 0	0	10	com.powercard.remote.WidgetStore$Status java.lang.String power
+F d 0	0	10	com.powercard.remote.WidgetStore$Status long updatedAt
+C d 2	2	144	com.powercard.remote.PowerCardWidgetProvider$$ExternalSyntheticLambda0
+M d 1	1	44	com.powercard.remote.PowerCardWidgetProvider$$ExternalSyntheticLambda0 <init>(android.content.BroadcastReceiver$PendingResult)
+M d 1	1	42	com.powercard.remote.PowerCardWidgetProvider$$ExternalSyntheticLambda0 void run()
+F d 0	0	12	com.powercard.remote.PowerCardWidgetProvider$$ExternalSyntheticLambda0 android.content.BroadcastReceiver$PendingResult f$0
+C d 2	2	172	com.powercard.remote.WidgetPin
+M d 1	1	40	com.powercard.remote.WidgetPin <init>()
+M d 1	1	92	com.powercard.remote.WidgetPin boolean requestPin(android.app.Activity)
+C d 2	2	201	com.powercard.remote.WidgetRefresher$$ExternalSyntheticLambda0
+M d 1	1	56	com.powercard.remote.WidgetRefresher$$ExternalSyntheticLambda0 <init>(android.content.Context,java.lang.String,int,java.lang.Runnable)
+M d 1	1	54	com.powercard.remote.WidgetRefresher$$ExternalSyntheticLambda0 void run()
+F d 0	0	12	com.powercard.remote.WidgetRefresher$$ExternalSyntheticLambda0 android.content.Context f$0
+F d 0	0	11	com.powercard.remote.WidgetRefresher$$ExternalSyntheticLambda0 java.lang.String f$1
+F d 0	0	11	com.powercard.remote.WidgetRefresher$$ExternalSyntheticLambda0 int f$2
+F d 0	0	11	com.powercard.remote.WidgetRefresher$$ExternalSyntheticLambda0 java.lang.Runnable f$3
+C d 2	2	182	com.powercard.remote.WidgetRefresher$$ExternalSyntheticLambda1
+M d 1	1	52	com.powercard.remote.WidgetRefresher$$ExternalSyntheticLambda1 <init>(android.content.Context,int[],java.lang.Runnable)
+M d 1	1	50	com.powercard.remote.WidgetRefresher$$ExternalSyntheticLambda1 void run()
+F d 0	0	12	com.powercard.remote.WidgetRefresher$$ExternalSyntheticLambda1 android.content.Context f$0
+F d 0	0	11	com.powercard.remote.WidgetRefresher$$ExternalSyntheticLambda1 int[] f$1
+F d 0	0	11	com.powercard.remote.WidgetRefresher$$ExternalSyntheticLambda1 java.lang.Runnable f$2
+C d 2	2	233	com.powercard.remote.WidgetRefresher$1
+M d 1	1	56	com.powercard.remote.WidgetRefresher$1 <init>()
+M d 1	1	92	com.powercard.remote.WidgetRefresher$1 java.lang.Thread newThread(java.lang.Runnable)
+F d 0	0	11	com.powercard.remote.WidgetRefresher$1 java.util.concurrent.atomic.AtomicInteger counter
+C d 2	2	186	com.powercard.remote.WidgetStateParser$1
+M d 1	1	40	com.powercard.remote.WidgetStateParser$1 <init>()
+M d 1	1	72	com.powercard.remote.WidgetStateParser$1 java.lang.String decode(java.util.regex.Matcher)
+C d 2	2	182	com.powercard.remote.WidgetStateParser$2
+M d 1	1	40	com.powercard.remote.WidgetStateParser$2 <init>()
+M d 1	1	68	com.powercard.remote.WidgetStateParser$2 java.lang.String decode(java.util.regex.Matcher)
+C d 2	2	416	com.powercard.remote.WidgetStateParser$3
+M d 1	1	40	com.powercard.remote.WidgetStateParser$3 <init>()
+M d 1	1	302	com.powercard.remote.WidgetStateParser$3 java.lang.String decode(java.util.regex.Matcher)
+C d 2	2	249	com.powercard.remote.WidgetStateParser$Result
+M d 1	1	64	com.powercard.remote.WidgetStateParser$Result <init>(java.lang.String,boolean,boolean,java.lang.String,java.lang.String,java.lang.String)
+M d 1	1	56	com.powercard.remote.WidgetStateParser$Result boolean hasMapping()
+F d 0	0	11	com.powercard.remote.WidgetStateParser$Result boolean online
+F d 0	0	10	com.powercard.remote.WidgetStateParser$Result java.lang.String onlineField
+F d 0	0	10	com.powercard.remote.WidgetStateParser$Result boolean onlineInferred
+F d 0	0	10	com.powercard.remote.WidgetStateParser$Result java.lang.String power
+F d 0	0	10	com.powercard.remote.WidgetStateParser$Result java.lang.String powerField
+F d 0	0	10	com.powercard.remote.WidgetStateParser$Result java.lang.String warning
+C d 2	2	188	com.powercard.remote.WidgetStateParser$TextStatus
+M d 1	1	40	com.powercard.remote.WidgetStateParser$TextStatus <init>()
+M d 1	1	39	com.powercard.remote.WidgetStateParser$TextStatus <init>(com.powercard.remote.WidgetStateParser-IA)
+F d 0	0	11	com.powercard.remote.WidgetStateParser$TextStatus java.lang.Boolean online
+F d 0	0	10	com.powercard.remote.WidgetStateParser$TextStatus java.lang.String onlinePath
+F d 0	0	10	com.powercard.remote.WidgetStateParser$TextStatus java.lang.String power
+F d 0	0	10	com.powercard.remote.WidgetStateParser$TextStatus java.lang.String powerPath
+C d 1	1	81	com.powercard.remote.WidgetStateParser$Decoder
+M d 1	1	13	com.powercard.remote.WidgetStateParser$Decoder java.lang.String decode(java.util.regex.Matcher)
+C d 1	1	179	com.powercard.remote.WidgetStateParser$Candidate
+M d 1	1	60	com.powercard.remote.WidgetStateParser$Candidate <init>(boolean,java.lang.String,java.lang.Object,int,int)
+F d 0	0	11	com.powercard.remote.WidgetStateParser$Candidate int order
+F d 0	0	10	com.powercard.remote.WidgetStateParser$Candidate java.lang.String path
+F d 0	0	10	com.powercard.remote.WidgetStateParser$Candidate boolean power
+F d 0	0	10	com.powercard.remote.WidgetStateParser$Candidate int priority
+F d 0	0	10	com.powercard.remote.WidgetStateParser$Candidate java.lang.Object value
+C d 1	1	151	com.powercard.remote.WidgetStateParser$Node
+M d 1	1	52	com.powercard.remote.WidgetStateParser$Node <init>(java.lang.Object,java.lang.String,int)
+F d 0	0	11	com.powercard.remote.WidgetStateParser$Node int depth
+F d 0	0	10	com.powercard.remote.WidgetStateParser$Node java.lang.Object node
+F d 0	0	10	com.powercard.remote.WidgetStateParser$Node java.lang.String path
+C d 1	1	137	com.powercard.remote.WidgetStateParser$OnlinePick
+M d 1	1	48	com.powercard.remote.WidgetStateParser$OnlinePick <init>(java.lang.Boolean,java.lang.String)
+F d 0	0	11	com.powercard.remote.WidgetStateParser$OnlinePick java.lang.Boolean mapped
+F d 0	0	10	com.powercard.remote.WidgetStateParser$OnlinePick java.lang.String path
+C d 1	1	137	com.powercard.remote.WidgetStateParser$PowerPick
+M d 1	1	48	com.powercard.remote.WidgetStateParser$PowerPick <init>(java.lang.String,java.lang.String)
+F d 0	0	11	com.powercard.remote.WidgetStateParser$PowerPick java.lang.String mapped
+F d 0	0	10	com.powercard.remote.WidgetStateParser$PowerPick java.lang.String path
+C d 0	0	36	com.powercard.remote.WidgetStateParser-IA
+

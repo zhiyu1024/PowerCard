@@ -7,10 +7,12 @@ import android.webkit.WebView;
 
 import org.json.JSONObject;
 
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -55,10 +57,52 @@ public final class NativeBridge {
         return configStore.load();
     }
 
-    /** 保存配置 JSON 字符串；成功返回 true。 */
+    /** 保存配置 JSON 字符串；成功返回 true，并刷新桌面小组件（若已添加）。 */
     @JavascriptInterface
     public boolean saveConfigJson(String json) {
-        return configStore.save(json);
+        boolean saved = configStore.save(json);
+        if (saved) {
+            refreshWidgets();
+        }
+        return saved;
+    }
+
+    /**
+     * 添加桌面小组件（API 26+ requestPinAppWidget）。
+     * JS bridge 线程调用；实际请求在 UI 线程执行，返回是否发起（设备/启动器不支持时 false）。
+     */
+    @JavascriptInterface
+    public boolean requestPinWidget() {
+        final boolean[] requested = new boolean[]{false};
+        final CountDownLatch latch = new CountDownLatch(1);
+        try {
+            activity.runOnUiThread(() -> {
+                try {
+                    requested[0] = WidgetPin.requestPin(activity);
+                } catch (Throwable ignored) {
+                    requested[0] = false;
+                } finally {
+                    latch.countDown();
+                }
+            });
+            // 等待 UI 线程完成（正常在毫秒级）；超时则保守返回 false
+            latch.await(3, TimeUnit.SECONDS);
+        } catch (InterruptedException interrupted) {
+            Thread.currentThread().interrupt();
+        } catch (Throwable ignored) {
+            // 忽略，按未发起处理
+        }
+        return requested[0];
+    }
+
+    /** 触发所有桌面小组件刷新（App 保存配置/指令后由 JS 调用）。 */
+    @JavascriptInterface
+    public void refreshWidgets() {
+        try {
+            WidgetRefresher.requestRefreshAll(activity.getApplicationContext());
+        } catch (Throwable ignored) {
+            // 小组件刷新失败不影响 App
+        }
     }
 
     /**
@@ -111,7 +155,7 @@ public final class NativeBridge {
         activity.runOnUiThread(() -> activity.copyToClipboard(value));
     }
 
-    /** 返回形如 "1.0.0" 的版本号。 */
+    /** 返回形如 "1.1.0" 的版本号。 */
     @JavascriptInterface
     public String getAppVersion() {
         return BuildConfig.VERSION_NAME;

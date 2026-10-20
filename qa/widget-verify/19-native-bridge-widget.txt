@@ -1,0 +1,30 @@
+
+  public\native-bridge.js:112:
+> public\native-bridge.js:113:  function refreshWidgetsQuietly() {
+  public\native-bridge.js:114:    try {
+> public\native-bridge.js:115:      if (native && typeof native.refreshWidgets === "function") {
+> public\native-bridge.js:116:        native.refreshWidgets();
+  public\native-bridge.js:117:      }
+  public\native-bridge.js:129:        // 无论指令成功与否都让小组件刷新一次，显示最新状态/错误。
+> public\native-bridge.js:130:        promise.then(refreshWidgetsQuietly, () => {});
+  public\native-bridge.js:131:      } else if (raw.startsWith("/api/config") && method === "PUT") {
+  public\native-bridge.js:132:        promise.then((response) => {
+> public\native-bridge.js:133:          if (response && response.status === 200) refreshWidgetsQuietly();
+  public\native-bridge.js:134:        }, () => {});
+  public\native-bridge.js:141:  // 设置页“桌面小组件”区块只在 APK 原生模式显示；浏览器/PWA 保持隐藏。
+> public\native-bridge.js:142:  function setupWidgetSection() {
+> public\native-bridge.js:143:    const section = document.getElementById("widgetSection");
+  public\native-bridge.js:144:    if (!section) return;
+  public\native-bridge.js:145:    section.hidden = false;
+> public\native-bridge.js:146:    const button = document.getElementById("addWidgetBtn");
+> public\native-bridge.js:147:    const hint = document.getElementById("widgetHint");
+  public\native-bridge.js:148:    if (!button) return;
+  public\native-bridge.js:151:      try {
+> public\native-bridge.js:152:        requested = native.requestPinWidget && native.requestPinWidget() === true;
+  public\native-bridge.js:153:      } catch {
+  public\native-bridge.js:165:  if (document.readyState === "loading") {
+> public\native-bridge.js:166:    document.addEventListener("DOMContentLoaded", setupWidgetSection, { once: true });
+  public\native-bridge.js:167:  } else {
+> public\native-bridge.js:168:    setupWidgetSection();
+  public\native-bridge.js:169:  }
+

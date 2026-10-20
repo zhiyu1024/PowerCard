@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.powercard.remote.WidgetStateParserTest" tests="24" skipped="0" failures="0" errors="0" timestamp="2026-10-20T10:18:27" hostname="SMH" time="0.01">
+  <properties/>
+  <testcase name="fieldPathResolution" classname="com.powercard.remote.WidgetStateParserTest" time="0.003"/>
+  <testcase name="apiEnvelopeWithoutDataPowerStaysUnknown" classname="com.powercard.remote.WidgetStateParserTest" time="0.001"/>
+  <testcase name="apiEnvelopeStatusZeroIsNotPowerOff" classname="com.powercard.remote.WidgetStateParserTest" time="0.0"/>
+  <testcase name="cardOnlineLabelIsNotPowerOn" classname="com.powercard.remote.WidgetStateParserTest" time="0.001"/>
+  <testcase name="unrecognizedTextInfersOnline" classname="com.powercard.remote.WidgetStateParserTest" time="0.0"/>
+  <testcase name="plainTextKeyValueLines" classname="com.powercard.remote.WidgetStateParserTest" time="0.0"/>
+  <testcase name="htmlSinglePowerDescriptionIsDetected" classname="com.powercard.remote.WidgetStateParserTest" time="0.0"/>
+  <testcase name="explicitOnlineFalseIsNotOverriddenByInference" classname="com.powercard.remote.WidgetStateParserTest" time="0.0"/>
+  <testcase name="powerLabels" classname="com.powercard.remote.WidgetStateParserTest" time="0.0"/>
+  <testcase name="htmlOfflineKeyword" classname="com.powercard.remote.WidgetStateParserTest" time="0.0"/>
+  <testcase name="plainOkMeansOnlineButNotPower" classname="com.powercard.remote.WidgetStateParserTest" time="0.001"/>
+  <testcase name="manualFieldWins" classname="com.powercard.remote.WidgetStateParserTest" time="0.0"/>
+  <testcase name="htmlWithBothPowerKeywordsIsNotGuessed" classname="com.powercard.remote.WidgetStateParserTest" time="0.001"/>
+  <testcase name="plainTextWholeToken" classname="com.powercard.remote.WidgetStateParserTest" time="0.0"/>
+  <testcase name="jsonDepthLimitIsFive" classname="com.powercard.remote.WidgetStateParserTest" time="0.0"/>
+  <testcase name="specificFieldWinsOverGenericField" classname="com.powercard.remote.WidgetStateParserTest" time="0.0"/>
+  <testcase name="manualFieldMissFallsBackToAutoDetect" classname="com.powercard.remote.WidgetStateParserTest" time="0.001"/>
+  <testcase name="jsonNestedFields" classname="com.powercard.remote.WidgetStateParserTest" time="0.0"/>
+  <testcase name="keyNormalization" classname="com.powercard.remote.WidgetStateParserTest" time="0.0"/>
+  <testcase name="jsonContentTypeButNotJsonFallsBackToText" classname="com.powercard.remote.WidgetStateParserTest" time="0.0"/>
+  <testcase name="powerAndOnlineValueMapping" classname="com.powercard.remote.WidgetStateParserTest" time="0.0"/>
+  <testcase name="genericStatusKeyOnlyUsedWhenValueIsClear" classname="com.powercard.remote.WidgetStateParserTest" time="0.0"/>
+  <testcase name="jsonAutoDetectsPowerAndOnline" classname="com.powercard.remote.WidgetStateParserTest" time="0.001"/>
+  <testcase name="manualFieldSupportsArrayIndex" classname="com.powercard.remote.WidgetStateParserTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

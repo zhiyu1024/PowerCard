@@ -1,0 +1,10 @@
+== git check-ignore ==
+.gitignore:20:android/keystore/	android/keystore/powercard-release.jks
+.gitignore:20:android/keystore/	android/keystore/keystore.properties
+.gitignore:14:.android-toolchain/	.android-toolchain/jdk
+== git untracked keystore/token scan ==
+OK: no keystore/password/token paths
+== permissions v1.1.0 ==
+uses-permission: name='android.permission.INTERNET'
+uses-permission: name='android.permission.ACCESS_NETWORK_STATE'
+uses-permission: name='com.powercard.remote.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'

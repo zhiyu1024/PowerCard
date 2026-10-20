@@ -154,6 +154,13 @@ function fakeNativeInit() {
       return true;
     },
     httpGet,
+    requestPinWidget: () => {
+      window.__widgetPinRequested = true;
+      return true;
+    },
+    refreshWidgets: () => {
+      window.__widgetRefreshCount = (window.__widgetRefreshCount || 0) + 1;
+    },
     getAppVersion: () => '1.0.0',
   };
 }
@@ -217,6 +224,20 @@ async function main() {
       await screenshot(page, 'native-live.png');
     });
 
+    await runCase('原生模式：设置页“桌面小组件”入口可请求添加', async () => {
+      await page.locator('#settingsBtn').click();
+      await page.waitForTimeout(250);
+      const section = page.locator('#widgetSection');
+      assertEqual(await section.isVisible(), true, '原生模式应显示桌面小组件区块');
+      await page.locator('#addWidgetBtn').click();
+      await page.waitForTimeout(150);
+      assertEqual(await page.evaluate(() => window.__widgetPinRequested === true), true, '应调用原生的 requestPinWidget');
+      const hint = await page.locator('#widgetHint').innerText();
+      assert(hint.includes('已发起添加'), `添加提示应显示成功，实际：${hint}`);
+      await page.evaluate(() => document.getElementById('settingsClose').click());
+      await page.waitForTimeout(300);
+    });
+
     await runCase('原生模式：关机/开机都需要二次确认', async () => {
       await page.locator('#powerOffBtn').click();
       await page.waitForFunction(() => document.getElementById('confirmDialog').open, null, { timeout: 3000 });
@@ -232,6 +253,10 @@ async function main() {
       await page.locator('#confirmOk').click();
       await page.waitForTimeout(2300);
       assertEqual(await page.locator('#heroTitle').innerText(), '电脑已开机', '开机后状态');
+      assert(
+        await page.evaluate(() => (window.__widgetRefreshCount || 0) > 0),
+        '指令后应通知小组件刷新',
+      );
       await screenshot(page, 'native-on.png');
     });
 

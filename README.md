@@ -2,11 +2,13 @@
 
 一个给「电脑远程开机卡」用的手机控制 App：打开就能看到开机卡是否在线、电脑是否开机，用两个大按钮开机 / 关机，两个小按钮重启 / 刷新状态，右上角调试按钮配置接口 URL。
 
+**v1.1.0 新增桌面小组件**：4×2 / 2×2 两套尺寸，桌面直接看状态、开机 / 关机 / 刷新，开机和关机都采用小组件内两段式二次确认，不跳转 App。
+
 **这一版是独立的 Android APK，不需要电脑、Node 服务或任何外部服务器。** 所有状态查询、开机、关机、重启请求都由手机原生网络层直接发往你配置的 URL。原来的网页 + Node 代理版本保留为可选的桌面/浏览器工具，APK 不依赖它。
 
-- 安装包：[`dist/PowerCard-v1.0.0.apk`](dist/PowerCard-v1.0.0.apk)（1,697,462 字节）
-- SHA-256：`cdd4bf7c0f06f9f265ec8207f6a4a0a11f8b0646ca0b743609d592ae13c766ce`
-- 包名：`com.powercard.remote` · versionName `1.0.0`
+- 安装包：[`dist/PowerCard-v1.1.0.apk`](dist/PowerCard-v1.1.0.apk)（1,722,546 字节）
+- SHA-256：`5af3560855f5707ae0718f86daedd1bc69b72eeda71f32ec0dacc39d7fb22599`
+- 包名：`com.powercard.remote` · versionName `1.1.0`
 - 支持：Android 8.0（API 26）及以上
 - 权限：仅网络（INTERNET / ACCESS_NETWORK_STATE）
 
@@ -23,6 +25,7 @@
 - [安装 APK](#安装-apk)
 - [第一次配置](#第一次配置)
 - [功能说明](#功能说明)
+- [桌面小组件](#桌面小组件)
 - [为什么不需要服务器](#为什么不需要服务器)
 - [网络与 URL 说明](#网络与-url-说明)
 - [状态识别](#状态识别)
@@ -35,7 +38,7 @@
 
 ## 安装 APK
 
-1. 把 `dist/PowerCard-v1.0.0.apk` 传到手机（微信文件传输、数据线、网盘均可）。
+1. 把 `dist/PowerCard-v1.1.0.apk` 传到手机（微信文件传输、数据线、网盘均可）。
 2. 在手机上点击 APK。系统提示「禁止安装未知应用」时，允许当前文件管理器/浏览器安装。
 3. 安装完成，桌面出现「远程电脑控制」图标。
 4. 打开 App。第一次是**演示模式**（四项接口 URL 为空），不会操作真实电脑。
@@ -75,6 +78,45 @@
 - **轮询**：默认每 10 秒刷新；App 切到后台暂停，回前台立即刷新。
 - **调试**：保存前测试连接、查看原始响应、加载最近 30 条请求记录。
 - **演示模式**：没填 URL 时可完整体验界面，开关机只改内存模拟状态。
+- **桌面小组件（v1.1.0 新增）**：4×2 标准版 / 2×2 紧凑版，桌面直接显示开关机状态和在线状态，支持开机 / 关机 / 刷新；开机、关机同样两段式二次确认。
+
+## 桌面小组件
+
+### 添加
+
+1. 打开 App → 右上角调试按钮 → 「桌面小组件」；
+2. 点 **「添加到桌面」**；
+3. 系统弹出确认后，小组件会放到桌面；
+4. 长按小组件拖动边缘，可调整为 **4×2** 或 **2×2** 紧凑尺寸。
+
+如果启动器不支持自动添加，设置页会提示：长按桌面空白处 → 小组件 → 选择「电脑开关机」。
+
+### 显示与操作
+
+```text
+4×2：
+┌──────────────────────────────────┐
+│ 电脑已开机                        │
+│ 开机卡在线 · 15:25                │
+│ [   开机   ] [   关机   ] [刷新]  │
+└──────────────────────────────────┘
+
+2×2（紧凑）：
+┌──────────────────┐
+│ 电脑已开机        │
+│ 开机卡在线·15:25  │
+│ [开机] [关机] [刷新] │
+└──────────────────┘
+```
+
+- **两段式二次确认**：第一次点开机/关机，小组件变成「确认开机？/确认关机？」+ 取消/确认；第二次点确认才真正发 GET；超过 30 秒失效，下次刷新/点击时恢复普通态。小组件的二次确认**始终开启**，不受 App 内「操作二次确认」开关影响。
+- **刷新**：点「刷新」立即请求状态；App 保存配置、执行开关机后也会通知小组件刷新。
+- **自动刷新**：系统周期更新约 30 分钟（Android 限制），显示“最后更新时间”。
+- **未配置**：显示「未配置 · 打开 App 设置」，点击进入 App，不显示假状态。
+- **失败**：保留上次成功状态和更新时间，显示“连接失败”；点刷新重试。
+- 桌面小组件只提供开机 / 关机 / 刷新，**没有重启按钮**（重启仍在 App 内操作）。
+
+> 已知限制：小组件不是实时后台轮询；系统更新周期约 30 分钟，操作/刷新后会立即更新。
 
 ## 为什么不需要服务器
 
@@ -174,7 +216,7 @@ powershell -ExecutionPolicy Bypass -File scripts\build-android.ps1
 1. 同步仓库根 `public/` 到 `android/app/src/main/assets/public/`；
 2. 构建 debug + release；
 3. 复用/生成 release keystore；
-4. 输出 `dist/PowerCard-v1.0.0.apk` 和 SHA-256；
+4. 输出 `dist/PowerCard-v1.1.0.apk` 和 SHA-256；
 5. 执行 apksigner、aapt2、APK 内容校验。
 
 只构建 debug：`... -Target debug`；只构建 release：`... -Target release`。
@@ -194,13 +236,24 @@ android/
 │  ├─ NativeBridge.java          window.PowerCardNative 注入
 │  ├─ NativeHttpClient.java      原生 GET、超时、错误映射
 │  ├─ SecureConfigStore.java     Keystore AES/GCM 配置加密
-│  └─ RootAssetsPathHandler.java 本地资源兜底
+│  ├─ RootAssetsPathHandler.java 本地资源兜底
+│  ├─ PowerCardWidgetProvider.java 桌面小组件广播入口
+│  ├─ WidgetRenderer.java        RemoteViews 4×2/2×2/确认态
+│  ├─ WidgetRefresher.java       状态刷新/指令/延迟刷新
+│  ├─ WidgetStateParser.java     Java 状态解析（小组件无 WebView）
+│  ├─ WidgetStore.java           状态缓存 + per-widget pending
+│  ├─ WidgetConfig.java / WidgetContract.java / WidgetPin.java
+│  └─ ...
+├─ app/src/main/res/layout/widget_powercard_*.xml
+├─ app/src/main/res/xml/widget_info.xml
+├─ app/src/test/java/...        Java 解析器/配置单测
 ├─ app/src/main/assets/public/  构建时从根 public/ 同步（gitignore）
 └─ tools/generate-icons.py      mipmap 图标生成
 dist/
-├─ PowerCard-v1.0.0.apk
-├─ PowerCard-v1.0.0.apk.sha256
-└─ PowerCard-v1.0.0-debug.apk   仅调试用，非最终交付
+├─ PowerCard-v1.1.0.apk
+├─ PowerCard-v1.1.0.apk.sha256
+├─ PowerCard-v1.1.0-debug.apk   仅调试用，非最终交付
+└─ PowerCard-v1.0.0*           上一版回退包
 ```
 
 ## 可选的网页版
@@ -217,25 +270,33 @@ npm start
 ## 测试
 
 ```powershell
-# Node 单元 + 集成测试（79 + 11）
+# Node 单元 + 集成测试（90 用例）
 $env:NODE_OPTIONS='--test-isolation=none'; npm test
 
-# 网页端 E2E（18 用例，含开机确认）
+# 网页端 E2E（18 用例，含开机/关机/重启确认）
 npm run test:e2e
 
-# 原生模式模拟（6 用例：注入 PowerCardNative，验证 /api 兼容层与 APK 资源路径）
+# 原生模式模拟（7 用例：注入 PowerCardNative，含小组件入口/刷新通知）
 npm run test:native
+```
+
+Android 侧小组件 Java 单测：
+
+```powershell
+cd android
+..\.android-toolchain\gradle-8.9\bin\gradle.bat :app:testDebugUnitTest --no-daemon
+# 29/29：WidgetStateParserTest 24 + WidgetConfigTest 5
 ```
 
 APK 校验：
 
 ```powershell
-.android-toolchain\android-sdk\build-tools\35.0.0\apksigner.bat verify --verbose dist\PowerCard-v1.0.0.apk
-.android-toolchain\android-sdk\build-tools\35.0.0\aapt2.exe dump badging dist\PowerCard-v1.0.0.apk
-Get-FileHash -Algorithm SHA256 dist\PowerCard-v1.0.0.apk
+.android-toolchain\android-sdk\build-tools\35.0.0\apksigner.bat verify --verbose dist\PowerCard-v1.1.0.apk
+.android-toolchain\android-sdk\build-tools\35.0.0\aapt2.exe dump badging dist\PowerCard-v1.1.0.apk
+Get-FileHash -Algorithm SHA256 dist\PowerCard-v1.1.0.apk
 ```
 
-测试说明与结果见 [`docs/qa-report.md`](docs/qa-report.md) 和 [`docs/android-build.md`](docs/android-build.md)。
+测试说明与结果见 [`docs/qa-report.md`](docs/qa-report.md)、[`docs/android-qa-report.md`](docs/android-qa-report.md)、[`docs/widget-qa-report.md`](docs/widget-qa-report.md) 和 [`docs/android-build.md`](docs/android-build.md)。
 
 ## 常见问题
 
@@ -275,9 +336,16 @@ Get-FileHash -Algorithm SHA256 dist\PowerCard-v1.0.0.apk
 - 自签名 HTTPS 证书默认不受信任；如你的开机卡使用自签证书，需要额外加信任配置。
 - 单套 URL，不自动切换内网/公网；如果两套 URL 不同，需要在设置里切换填写。
 - App 切到后台会暂停轮询，这是省电设计；回到前台立即刷新。
+- 桌面小组件不是实时后台轮询：系统周期更新约 30 分钟，点刷新/App 操作后会立即更新。
+- 2×2 紧凑布局需要通过长按小组件调整尺寸进入；Android 12+ 小组件选择器默认预览为 4×2。
+- 系统大字体或极窄 2×2 下，4×2/2×2 文案可能拥挤或被截断；这是待真机核对的视觉风险，功能不受影响。
+- 小组件的两段式确认始终开启，不受 App 内「操作二次确认」开关影响。
+- 小组件的桌面渲染、pin 弹窗、两段式点击、30 秒恢复、延迟刷新未在真机验证（本机无模拟器/真机），需你安装后确认。
 - 升级必须使用同一 keystore，请备份 `android/keystore/`。
 
 ---
 
 主界面视觉参考 `docs/reference-mockup.png`，实现与验收记录见 `docs/design-spec.md`、`docs/qa-report.md`。
+
+
 

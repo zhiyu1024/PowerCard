@@ -1,30 +1,35 @@
 {
-  "generatedAt": "2026-10-20T09:06:29.519Z",
+  "generatedAt": "2026-10-20T10:22:50.660Z",
   "results": [
     {
       "name": "原生模式：注入原生桥，首屏进入演示模式",
       "status": "pass",
-      "durationMs": 1387
+      "durationMs": 1356
     },
     {
       "name": "原生模式：设置保存 4 个 URL 后切换 live",
       "status": "pass",
-      "durationMs": 1952
+      "durationMs": 1934
+    },
+    {
+      "name": "原生模式：设置页“桌面小组件”入口可请求添加",
+      "status": "pass",
+      "durationMs": 809
     },
     {
       "name": "原生模式：关机/开机都需要二次确认",
       "status": "pass",
-      "durationMs": 5319
+      "durationMs": 5308
     },
     {
       "name": "原生模式：日志面板包含 native status/command，且不注册 SW",
       "status": "pass",
-      "durationMs": 713
+      "durationMs": 717
     },
     {
       "name": "原生模式：刷新后配置保持 live",
       "status": "pass",
-      "durationMs": 1457
+      "durationMs": 1453
     },
     {
       "name": "原生模式：无 console error / pageerror / 失败请求",

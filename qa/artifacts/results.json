@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-10-20T09:06:18.038Z",
+  "generatedAt": "2026-10-20T10:22:38.578Z",
   "environment": {
     "node": "v24.21.0",
     "platform": "win32 x64",
     "playwrightCore": "1.64.1",
     "browser": "156.0.8078.4",
     "browserExecutable": ".pw-browsers\\chrome-headless-shell\\chrome-headless-shell-win64\\chrome-headless-shell.exe",
-    "appBaseUrl": "http://127.0.0.1:64222",
-    "configPath": "C:\\Users\\smh\\AppData\\Local\\Temp\\powercard-e2e-VxAGrn\\data\\config.json",
+    "appBaseUrl": "http://127.0.0.1:57027",
+    "configPath": "C:\\Users\\smh\\AppData\\Local\\Temp\\powercard-e2e-LXxp35\\data\\config.json",
     "note": "临时 CONFIG_PATH + 随机端口 + 本地 mock 设备；未使用 8787，未写入真实 data/config.json。"
   },
   "summary": {
@@ -16,13 +16,13 @@
     "failed": 0
   },
   "metrics": {
-    "offStateSwitchMs": 2169
+    "offStateSwitchMs": 2157
   },
   "cases": [
     {
       "name": "首屏 390×844（演示模式）",
       "status": "pass",
-      "durationMs": 1327
+      "durationMs": 1279
     },
     {
       "name": "首屏 360×800（演示模式）",
@@ -32,77 +32,77 @@
     {
       "name": "首屏 765×403（演示模式）",
       "status": "pass",
-      "durationMs": 1227
+      "durationMs": 1231
     },
     {
       "name": "桌面 1280×800（单列居中 / 视觉层次）",
       "status": "pass",
-      "durationMs": 1343
+      "durationMs": 1301
     },
     {
       "name": "关机：确认弹窗（焦点在取消）→ 2–3s 内变为“电脑已关机”",
       "status": "pass",
-      "durationMs": 3633
+      "durationMs": 3540
     },
     {
       "name": "开机：确认后恢复“电脑已开机”",
       "status": "pass",
-      "durationMs": 2834
+      "durationMs": 2819
     },
     {
       "name": "刷新按钮：立即进入 aria-busy/旋转，完成后恢复且不弹重复 toast",
       "status": "pass",
-      "durationMs": 1196
+      "durationMs": 1197
     },
     {
       "name": "设置抽屉：14 个字段/选择器齐全，打开后焦点进入、可滚动",
       "status": "pass",
-      "durationMs": 818
+      "durationMs": 798
     },
     {
       "name": "非法 URL：字段级错误且抽屉不关闭，不发送 PUT",
       "status": "pass",
-      "durationMs": 60
+      "durationMs": 41
     },
     {
       "name": "Esc 关闭设置抽屉，焦点回到调试按钮",
       "status": "pass",
-      "durationMs": 239
+      "durationMs": 228
     },
     {
       "name": "连接测试：填 mock 状态 URL 后显示接口可用/在线/已开机，且不保存",
       "status": "pass",
-      "durationMs": 422
+      "durationMs": 418
     },
     {
       "name": "保存四项 mock URL → 模式变 live，状态来自 mock 设备",
       "status": "pass",
-      "durationMs": 733
+      "durationMs": 721
     },
     {
       "name": "live 关机：mock 收到 GET /power/off，刷新后状态为“电脑已关机”",
       "status": "pass",
-      "durationMs": 2001
+      "durationMs": 2007
     },
     {
       "name": "日志面板：能看到 status / command 记录与当前模式",
       "status": "pass",
-      "durationMs": 1009
+      "durationMs": 1018
     },
     {
       "name": "刷新页面后临时 CONFIG_PATH 配置仍在，且仍是 live",
       "status": "pass",
-      "durationMs": 52
+      "durationMs": 44
     },
     {
       "name": "静态 / PWA：manifest、sw.js、图标 200，页面 link[rel=manifest] 存在",
       "status": "pass",
-      "durationMs": 11
+      "durationMs": 9
     },
     {
       "name": "Service Worker 成功注册并接管（独立 context）",
       "status": "pass",
-      "durationMs": 647
+      "durationMs": 625
     },
     {
       "name": "全流程无 console error / pageerror / 失败请求",
@@ -128,7 +128,7 @@
     "badResponses": [],
     "requestFailures": [],
     "putRequests": [
-      "[main] PUT http://127.0.0.1:64222/api/config"
+      "[main] PUT http://127.0.0.1:57027/api/config"
     ],
     "lastCheckedAt": "Service Worker"
   }

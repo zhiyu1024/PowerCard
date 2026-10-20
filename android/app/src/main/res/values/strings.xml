@@ -2,4 +2,39 @@
 <resources>
     <string name="app_name">远程电脑控制</string>
     <string name="webview_unavailable">WebView 不可用，无法显示界面</string>
+
+    <!-- 桌面小组件 v1.1.0 -->
+    <string name="widget_label">电脑开关机</string>
+    <string name="widget_description">查看电脑开关机状态；开机、关机前需要二次确认。</string>
+    <string name="widget_power_on">电脑已开机</string>
+    <string name="widget_power_off">电脑已关机</string>
+    <string name="widget_power_unknown">状态未知</string>
+    <string name="widget_unconfigured_full">未配置 · 打开 App 设置</string>
+    <string name="widget_unconfigured">未配置</string>
+    <string name="widget_unconfigured_action">打开 App 设置</string>
+    <string name="widget_card_online">开机卡在线</string>
+    <string name="widget_card_offline">开机卡离线</string>
+    <string name="widget_status_online_time">开机卡在线 · %1$s</string>
+    <string name="widget_status_offline_time">开机卡离线 · %1$s</string>
+    <string name="widget_status_error_last">连接失败 · 上次 %1$s</string>
+    <string name="widget_status_error_now">连接失败 · %1$s</string>
+    <string name="widget_status_loading">正在获取状态…</string>
+    <string name="widget_status_click_refresh">点击刷新重试</string>
+    <string name="widget_btn_on">开机</string>
+    <string name="widget_btn_off">关机</string>
+    <string name="widget_btn_refresh">刷新</string>
+    <string name="widget_confirm_on_title">确认开机？</string>
+    <string name="widget_confirm_off_title">确认关机？</string>
+    <string name="widget_confirm_hint">30 秒内再次点击确认，或点取消</string>
+    <string name="widget_btn_confirm_on">确认开机</string>
+    <string name="widget_btn_confirm_off">确认关机</string>
+    <string name="widget_btn_cancel">取消</string>
+    <string name="widget_action_sent">已发送，正在刷新…</string>
+    <string name="widget_action_failed">发送失败 · 点击刷新重试</string>
+    <string name="widget_action_unconfigured">指令地址未配置</string>
+    <string name="widget_error_timeout">超时</string>
+    <string name="widget_error_network">网络错误</string>
+    <string name="widget_error_invalid_url">地址无效</string>
+    <string name="widget_error_http">HTTP %1$d</string>
+    <string name="widget_error_unknown">请重试</string>
 </resources>

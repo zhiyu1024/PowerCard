@@ -1,0 +1,74 @@
+=== widget code review greps ===
+--- PowerCardWidgetProvider.java
+23: // 广播执行窗口约 10s：goAsync + 后台线程，避免阻塞主线程
+24: final PendingResult pendingResult = goAsync();
+25: WidgetRefresher.refreshAllAsync(context, appWidgetIds, pendingResult::finish);
+44: PendingResult pendingResult = goAsync();
+45: WidgetRefresher.refreshAllAsync(context, null, pendingResult::finish);
+52: PendingResult pendingResult = goAsync();
+53: WidgetRefresher.refreshOneAsync(context, appWidgetId, pendingResult::finish);
+60: PendingResult pendingResult = goAsync();
+61: WidgetRefresher.refreshOneAsync(context, appWidgetId, pendingResult::finish);
+66: WidgetRefresher.enterConfirm(context, appWidgetId, WidgetContract.ACTION_ON);
+71: WidgetRefresher.enterConfirm(context, appWidgetId, WidgetContract.ACTION_OFF);
+83: PendingResult pendingResult = goAsync();
+84: WidgetRefresher.handleConfirmAsync(context, appWidgetId, pendingResult::finish);
+100: public void onDeleted(Context context, int[] appWidgetIds) {
+--- WidgetRefresher.java
+22: * <p>网络与解析都在单线程后台执行器里完成；provider 用 goAsync 延长广播生命周期，
+72: static void refreshAllAsync(Context context, int[] appWidgetIds, Runnable done) {
+93: static void refreshOneAsync(Context context, int appWidgetId, Runnable done) {
+98: refreshAllAsync(context, new int[]{appWidgetId}, done);
+106: static void enterConfirm(Context context, int appWidgetId, String action) {
+109: if (!config.hasStatusUrl()) {
+110: store.clearPending(appWidgetId);
+114: store.setPending(appWidgetId, action, System.currentTimeMillis());
+119: new WidgetStore(context).clearPending(appWidgetId);
+124: static void handleConfirmAsync(Context context, int appWidgetId, Runnable done) {
+127: String pendingAction = store.getPendingAction(appWidgetId);
+133: store.clearPending(appWidgetId);
+134: executeCommandAsync(appContext, appWidgetId, pendingAction, done);
+137: static void executeCommandAsync(Context context, int appWidgetId, String pendingAction, Runnable done) {
+153: NativeHttpClient.HttpResult result = null;
+155: result = new NativeHttpClient().get(url, config.widgetTimeoutMs());
+165: scheduleDelayedRefresh(appContext, appWidgetId);
+182: static void scheduleDelayedRefresh(Context context, int appWidgetId) {
+219: if (!config.hasStatusUrl()) {
+228: NativeHttpClient.HttpResult result = null;
+230: result = new NativeHttpClient().get(config.statusUrl, config.widgetTimeoutMs());
+249: private static String errorShort(Context context, NativeHttpClient.HttpResult result) {
+--- WidgetRenderer.java
+33: boolean configured = config.hasStatusUrl();
+34: String pendingAction = configured ? store.getPendingAction(appWidgetId) : null;
+--- WidgetStore.java
+110: /** 记录两段式确认；30 秒后由 {@link #getPendingAction(int)} 惰性清除。 */
+111: void setPending(int appWidgetId, String action, long now) {
+114: .putLong(actionKey(appWidgetId, KEY_PENDING_EXPIRES), now + WidgetContract.PENDING_TTL_MS)
+119: String getPendingAction(int appWidgetId) {
+127: clearPending(appWidgetId);
+133: void clearPending(int appWidgetId) {
+140: /** onDeleted：清理该实例的全部小组件数据。 */
+--- WidgetConfig.java
+56: boolean hasStatusUrl() {
+64: /** 小组件单次网络超时：clamp 到 [1000, 5000] ms（goAsync 广播窗口约 10s）。 */
+67: Math.min(WidgetContract.WIDGET_TIMEOUT_MS, requestTimeoutMs));
+--- WidgetContract.java
+24: static final long PENDING_TTL_MS = 30_000L;
+33: * 小组件单次网络超时上限：广播（goAsync）执行窗口约 10s，
+36: static final int WIDGET_TIMEOUT_MS = 5_000;
+59: /** 显式广播给小组件 provider（App 内部；receiver exported=false 也能收到）。 */
+68: PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+106: PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+--- WidgetPin.java
+7: /** “添加到桌面”系统弹窗（API 26+ requestPinAppWidget）。 */
+18: static boolean requestPin(Activity activity) {
+21: if (!manager.isRequestPinAppWidgetSupported()) {
+25: return manager.requestPinAppWidget(provider, null, null);
+--- WidgetStateParser.java
+--- NativeBridge.java
+33: private final NativeHttpClient httpClient = new NativeHttpClient();
+71: * 添加桌面小组件（API 26+ requestPinAppWidget）。
+75: public boolean requestPinWidget() {
+81: requested[0] = WidgetPin.requestPin(activity);
+122: resultJson = NativeHttpClient.failureJson("NETWORK", "网络请求失败", 0L);
+129: id, NativeHttpClient.failureJson("NETWORK", "应用正在退出", 0L)));

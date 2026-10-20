@@ -32,7 +32,13 @@ interface PowerCardNative {
   /** 复制文本到剪贴板（可选能力）。 */
   copyText(text: string): void;
 
-  /** 返回 "1.0.0" 形式的版本号。 */
+  /** 请求把桌面小组件添加到桌面；启动器支持并已发起返回 true。 */
+  requestPinWidget(): boolean;
+
+  /** 请求刷新所有已添加的桌面小组件（配置保存/指令后调用）。 */
+  refreshWidgets(): void;
+
+  /** 返回 "1.1.0" 形式的版本号。 */
   getAppVersion(): string;
 }
 ```
@@ -116,7 +122,7 @@ window.__powercardHttpResult = (requestId, result) => { /* JS 处理 */ };
 
 ## 6. 原生壳要求
 
-- 包名：`com.powercard.remote`；应用名：`远程电脑控制`；版本 `1.0.0`，versionCode 1。
+- 包名：`com.powercard.remote`；应用名：`远程电脑控制`；版本 `1.1.0`，versionCode 2。
 - minSdk 26，targetSdk/compileSdk 35。
 - 权限：仅 `android.permission.INTERNET`（可加 `ACCESS_NETWORK_STATE`）。
 - `android:usesCleartextTraffic="true"`（局域网 HTTP 必需）。
@@ -126,13 +132,24 @@ window.__powercardHttpResult = (requestId, result) => { /* JS 处理 */ };
 - 返回键：优先让网页关闭设置抽屉/确认框（`window.__powercardBack()`），否则退出 App。
 - 图标沿用 `public/icons/icon-512.png` 的绿色显示器风格。
 
+### 6.1 桌面小组件（v1.1.0）
+
+- 小组件用 `RemoteViews` + `AppWidgetProvider`，标准 4×2 / 紧凑 2×2 两套布局，不引入 Compose/Glance/WorkManager。
+- 显示电脑开关机、开机卡在线/离线、最后更新时间；按钮：开机、关机、刷新。无重启按钮。
+- 二次确认在小组件内完成：第一次点击进入“确认开机？/确认关机？”+ 取消/确认；第二次确认才发 GET；取消或 30 秒过期恢复。每个 appWidgetId 独立 pending。
+- 状态由 `NativeHttpClient` + Java 版 `WidgetStateParser` 读取/解析（小组件无 WebView）；行为对齐 `public/shared/parser.js`，并用同一批用例测试。
+- 无配置时显示“未配置 · 打开 App 设置”，不显示假数据；网络失败保留上次成功状态与时间。
+- 刷新：onUpdate、手动刷新、App 保存配置/指令后触发；`updatePeriodMillis` 约 30 分钟。
+- App 内设置页 `widgetSection` 仅原生模式显示，调用 `PowerCardNative.requestPinWidget()`；不支持的启动器给出长按桌面指引。
+- Provider receiver 在 manifest 中 `exported=false`，meta-data 指向 `res/xml/widget_info.xml`；无新增危险权限。
+
 ## 7. 构建
 
 - 工程目录：`android/`。
 - Gradle 8.9 + AGP 8.7.3 + JDK 17 + Android SDK 35。
 - 依赖：`androidx.webkit:webkit`（WebViewAssetLoader）、`androidx.core:core`（insets，可传递）。
 - 构建前 Gradle 任务把仓库根 `public/` 复制到 `android/app/src/main/assets/public/`，`public/shared/parser.js` 随之一并进入 APK。
-- 产出：`dist/PowerCard-v1.0.0.apk`，release 签名，附 SHA-256。
+- 产出：`dist/PowerCard-v1.1.0.apk`，release 签名，附 SHA-256。
 
 ## 8. 端上兜底的已知边缘差异
 

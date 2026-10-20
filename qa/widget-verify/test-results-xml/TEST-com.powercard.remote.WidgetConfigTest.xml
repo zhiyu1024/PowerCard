@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.powercard.remote.WidgetConfigTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-20T10:18:27" hostname="SMH" time="0.006">
+  <properties/>
+  <testcase name="parsesFieldsAndCommandUrls" classname="com.powercard.remote.WidgetConfigTest" time="0.005"/>
+  <testcase name="widgetNetworkTimeoutIsClampedToBroadcastWindow" classname="com.powercard.remote.WidgetConfigTest" time="0.0"/>
+  <testcase name="emptyJsonMeansUnconfigured" classname="com.powercard.remote.WidgetConfigTest" time="0.0"/>
+  <testcase name="invalidJsonFallsBackToEmpty" classname="com.powercard.remote.WidgetConfigTest" time="0.0"/>
+  <testcase name="statusUrlMustBeHttpOrHttps" classname="com.powercard.remote.WidgetConfigTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

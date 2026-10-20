@@ -1,0 +1,67 @@
+README.md:5: **v1.1.0 新增桌面小组件**：4×2 / 2×2 两套尺寸，桌面直接看状态、开机 / 关机 / 刷新，开机和关机都采用小组件内两段式二次确认，不跳转 App。
+README.md:9: - 安装包：[`dist/PowerCard-v1.1.0.apk`](dist/PowerCard-v1.1.0.apk)（1,722,546 字节）
+README.md:10: - SHA-256：`5af3560855f5707ae0718f86daedd1bc69b72eeda71f32ec0dacc39d7fb22599`
+README.md:11: - 包名：`com.powercard.remote` · versionName `1.1.0`
+README.md:41: 1. 把 `dist/PowerCard-v1.1.0.apk` 传到手机（微信文件传输、数据线、网盘均可）。
+README.md:81: - **桌面小组件（v1.1.0 新增）**：4×2 标准版 / 2×2 紧凑版，桌面直接显示开关机状态和在线状态，支持开机 / 关机 / 刷新；开机、关机同样两段式二次确认。
+README.md:90: 4. 长按小组件拖动边缘，可调整为 **4×2** 或 **2×2** 紧凑尺寸。
+README.md:104: 2×2（紧凑）：
+README.md:219: 4. 输出 `dist/PowerCard-v1.1.0.apk` 和 SHA-256；
+README.md:241: │  ├─ WidgetRenderer.java        RemoteViews 4×2/2×2/确认态
+README.md:253: ├─ PowerCard-v1.1.0.apk
+README.md:254: ├─ PowerCard-v1.1.0.apk.sha256
+README.md:255: ├─ PowerCard-v1.1.0-debug.apk   仅调试用，非最终交付
+README.md:287: ..\.android-toolchain\gradle-8.9\bin\gradle.bat :app:testDebugUnitTest --no-daemon
+README.md:294: .android-toolchain\android-sdk\build-tools\35.0.0\apksigner.bat verify --verbose dist\PowerCard-v1.1.0.apk
+README.md:295: .android-toolchain\android-sdk\build-tools\35.0.0\aapt2.exe dump badging dist\PowerCard-v1.1.0.apk
+README.md:296: Get-FileHash -Algorithm SHA256 dist\PowerCard-v1.1.0.apk
+README.md:334: - 本机没有 Android 真机/模拟器（CPU 虚拟化未开启），**未做真机安装后的运行验证**；已完成 APK 构建、签名、静态校验和原生模式浏览器 E2E。首次真机安装如遇问题，请把现象/截图反馈。
+README.md:340: - 2×2 紧凑布局需要通过长按小组件调整尺寸进入；Android 12+ 小组件选择器默认预览为 4×2。
+README.md:341: - 小组件的桌面渲染、pin 弹窗、两段式点击、30 秒恢复、延迟刷新未在真机验证（本机无模拟器/真机），需你安装后确认。
+docs\android-build.md:11: | `dist/PowerCard-v1.1.0.apk` | **v1.1.0 交付物**：release 签名安装包（含桌面小组件） |
+docs\android-build.md:12: | `dist/PowerCard-v1.1.0.apk.sha256` | 上述 APK 的 SHA-256 |
+docs\android-build.md:13: | `dist/PowerCard-v1.1.0-debug.apk` | debug 包，用于快速安装验证 |
+docs\android-build.md:16: 包名 `com.powercard.remote`，应用名「远程电脑控制」，versionName `1.1.0`，versionCode `2`，
+docs\android-build.md:17: minSdk 26 / targetSdk 35 / compileSdk 35。v1.1.0 相较 v1.0.0 新增桌面小组件（RemoteViews），
+docs\android-build.md:55: # 单元测试 + debug + release，并输出 dist/ 与校验结果（默认版本 1.1.0 / versionCode 2）
+docs\android-build.md:66: powershell -ExecutionPolicy Bypass -File scripts\build-android.ps1 -Version 1.1.0 -VersionCode 2
+docs\android-build.md:69: 脚本会先运行 `:app:testDebugUnitTest`（小组件状态解析器与配置 clamp，29 个用例；结果 XML 在
+docs\android-build.md:70: `android/app/build/test-results/testDebugUnitTest/`），失败即中止。
+docs\android-build.md:85: ..\.android-toolchain\gradle-8.9\bin\gradle.bat :app:testDebugUnitTest --no-daemon --console=plain
+docs\android-build.md:108: adb install -r dist\PowerCard-v1.1.0.apk
+docs\android-build.md:118: 也可长按桌面空白处从小组件列表添加「电脑开关机」。默认 4×2，长按拖动边缘可缩到 2×2（自动切换紧凑布局）。
+docs\android-build.md:119: - v1.1.0 与 v1.0.0 使用同一 release keystore，可直接覆盖升级；卸载会丢失加密配置。
+docs\android-build.md:121: ## 6. 桌面小组件（v1.1.0）
+docs\android-build.md:134: | `java/com/powercard/remote/WidgetRenderer.java` | 4×2 / 2×2 普通态与确认态 RemoteViews 渲染 |
+docs\android-build.md:140: | `src/test/java/.../WidgetStateParserTest.java`、`WidgetConfigTest.java` | 29 个 Java 单元测试（样本对齐 JS parser 测试） |
+docs\android-build.md:170: `minResizeWidth/Height=110dp`，`resizeMode=horizontal|vertical`，`updatePeriodMillis=1800000`，
+docs\android-build.md:172: - 运行时按 `AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH` 选择：`< 200dp` 用紧凑 2×2，否则 4×2；
+docs\android-build.md:189: & "$bt\apksigner.bat" verify --verbose --print-certs dist\PowerCard-v1.1.0.apk
+docs\android-build.md:190: & "$bt\aapt2.exe" dump badging dist\PowerCard-v1.1.0.apk
+docs\android-build.md:192: & "$bt\aapt2.exe" dump xmltree --file AndroidManifest.xml dist\PowerCard-v1.1.0.apk |
+docs\android-build.md:194: & "$bt\aapt2.exe" dump resources dist\PowerCard-v1.1.0.apk |
+docs\android-build.md:196: & "$bt\aapt2.exe" dump xmltree --file res/xml/widget_info.xml dist\PowerCard-v1.1.0-debug.apk |
+docs\android-build.md:197: Select-String "minWidth|minHeight|targetCell|minResize|resizeMode|updatePeriodMillis|previewLayout|description"
+docs\android-build.md:198: tar -tf dist\PowerCard-v1.1.0.apk | Select-String "assets/public/(index.html|app.js|shared/parser.js)|classes.dex|AndroidManifest.xml"
+docs\android-build.md:199: Get-FileHash -Algorithm SHA256 dist\PowerCard-v1.1.0.apk
+docs\android-build.md:242: - 未执行：模拟器/真机安装与 WebView 运行时交互（本机 CPU 虚拟化未开启）；本记录为构建与静态校验结论。
+docs\android-build.md:244: ### v1.1.0（桌面小组件）构建与校验记录
+docs\android-build.md:246: - 构建命令：`powershell -ExecutionPolicy Bypass -File scripts\build-android.ps1`（默认 `-Version 1.1.0 -VersionCode 2`）；
+docs\android-build.md:247: `:app:testDebugUnitTest`、`assembleDebug`、`assembleRelease` 均 BUILD SUCCESSFUL（release 的 lintVitalRelease 通过）。
+docs\android-build.md:248: - Java 单元测试：**29 个全过**（`WidgetStateParserTest` 24 + `WidgetConfigTest` 5），0 失败 0 错误。
+docs\android-build.md:253: - `dist/PowerCard-v1.1.0.apk`（1,722,546 字节）
+docs\android-build.md:254: SHA-256 `5af3560855f5707ae0718f86daedd1bc69b72eeda71f32ec0dacc39d7fb22599`
+docs\android-build.md:255: - `dist/PowerCard-v1.1.0.apk.sha256`（内容与上面一致）
+docs\android-build.md:256: - `dist/PowerCard-v1.1.0-debug.apk`（2,248,938 字节，仅安装验证，非交付物）
+docs\android-build.md:258: - `apksigner verify --verbose --print-certs dist/PowerCard-v1.1.0.apk`：`Verifies`；APK Signature Scheme v2: true；
+docs\android-build.md:261: - `aapt2 dump badging`：`package: name='com.powercard.remote' versionCode='2' versionName='1.1.0'`，
+docs\android-build.md:268: minResizeWidth/Height 110dp、targetCellWidth/Height=4/2、resizeMode=horizontal|vertical（0x3）、
+docs\android-build.md:273: - APK 内容：141 个条目；`assets/public` 14 个文件与仓库 `public/` 当前文件逐一 SHA-256 相同
+docs\android-build.md:278: - **未执行：真机/模拟器验证。** 本机未开启 CPU 虚拟化，未安装到任何设备。因此以下行为仅为静态检查/单测结论，
+docs\android-build.md:279: 未在真实 Launcher/AppWidget 环境验证：小组件实际渲染（圆角/字号/间距）、4×2↔2×2 尺寸切换、
+docs\android-build.md:281: 小组件真实网络请求与错误态展示。**不能声明“真机通过”。**
+docs\android-build.md:285: - 本机未开启 CPU 虚拟化，不启动模拟器/真机自动化；构建与静态校验（apksigner/aapt2/unzip）通过即视为工具链与壳可用。
+docs\android-build.md:288: - 小组件默认 4×2；2×2 通过长按拖动调整尺寸触发（单 provider 响应式），不提供独立尺寸选择入口。
+docs\android-bridge-contract.md:135: ### 6.1 桌面小组件（v1.1.0）
+docs\android-bridge-contract.md:137: - 小组件用 `RemoteViews` + `AppWidgetProvider`，标准 4×2 / 紧凑 2×2 两套布局，不引入 Compose/Glance/WorkManager。
+docs\android-bridge-contract.md:168: - 未在真机/模拟器运行验证（本机构建环境无虚拟化）；APK 的构建、签名与静态内容已验收，WebView 实际渲染需用户安装后确认。
